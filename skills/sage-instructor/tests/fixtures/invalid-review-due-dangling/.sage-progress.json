@@ -1,0 +1,20 @@
+{
+  "active_track": "python-basics",
+  "tracks": {
+    "python-basics": {
+      "phase": 0,
+      "completed_exercises": [],
+      "current_topic": "Variables",
+      "current_exercise": "P0-fizzbuzz",
+      "next_up": "P0-temp-converter",
+      "observations": "",
+      "topic_confidence": {"variables": "solid"},
+      "review_due": ["control-flow"],
+      "axis_overrides": {},
+      "low_hint_streak": 0,
+      "high_hint_streak": 0,
+      "last_session": "",
+      "hint_count": 0
+    }
+  }
+}

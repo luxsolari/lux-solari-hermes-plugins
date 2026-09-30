@@ -1,0 +1,20 @@
+{
+  "active_track": "python-basics",
+  "tracks": {
+    "python-basics": {
+      "phase": 2,
+      "completed_exercises": ["P0-fizzbuzz", "P1-list-ops", "P2-persistent-tasklist"],
+      "current_topic": "Combining classes with json persistence",
+      "current_exercise": "P2-persistent-tasklist",
+      "next_up": null,
+      "observations": "Track complete.",
+      "topic_confidence": {"classes": "solid"},
+      "review_due": [],
+      "axis_overrides": {},
+      "low_hint_streak": 2,
+      "high_hint_streak": 0,
+      "last_session": "2026-07-02: Completed the track",
+      "hint_count": 0
+    }
+  }
+}

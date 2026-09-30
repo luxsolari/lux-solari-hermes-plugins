@@ -1,0 +1,8 @@
+{
+  "active_track": "python-basics",
+  "tracks": {
+    "python-basics": {
+      "phase": 0,
+      "completed_exercises": ["P0-fizzbuzz"],
+    }
+  }
