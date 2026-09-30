@@ -1,5 +1,14 @@
 # Journal
 
+## 2026-09-29 — Whiting release machinery (publication pending)
+
+- Added collection `VERSION` (initial `0.1.0`), a dated changelog, Whiting-derived working agreements, root hooks, changelog extractor and semantic-version suggestion helper. Enabled the hooks and protected default-branch setting only in this checkout's Git config.
+- Added a tag/manual-dispatch Release workflow: canonical tag, tagged-tree identity, `main` ancestry, offline checks, matching VERSION/changelog gate, source archive/checksums, and GitHub Release publishing. Retries use the original tagged tree.
+- Verified 129 Python tests and three shell suites with `.venv/bin/python scripts/run_checks.py`; new Python gates were exercised red/green for notes extraction, canonical tag syntax, version mismatch, and empty notes. Root hook tests exercised malformed/valid messages, protected main pushes, permitted branch and tag pushes. `python scripts/validate_release.py v0.1.0` emitted the dated release notes; `git diff --check` passed.
+- Open: PR/remote CI and first release publication/readback. No live install rerun: runtime skill files did not change, and Hannah remains scanner-blocked.
+- Ruled out: silently matching upstream component versions to the tap version, automatic unreviewed version bumps/tags, moving existing tags, rewriting pre-Whiting history, scan overrides, and calling local hooks server-side branch protection.
+- Files: `AGENTS.md`, `VERSION`, `CHANGELOG.md`, `.github/workflows/release.yml`, `scripts/hooks/*`, `scripts/{extract_changelog,suggest_version_bump,validate_release}.py`, `tests/test_{release,repo_hooks}.py`, `README.md`.
+
 ## Publication and clean-home readback
 
 - Changed: published the public Hermes sibling repository and documented the live install results.

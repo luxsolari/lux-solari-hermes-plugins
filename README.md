@@ -1,5 +1,9 @@
 # Lux Solari · Hermes ports
 
+[![Release](https://img.shields.io/github/v/release/luxsolari/lux-solari-hermes-plugins)](https://github.com/luxsolari/lux-solari-hermes-plugins/releases)
+[![License](https://img.shields.io/badge/code-MIT-blue)](LICENSE)
+[![Checks](https://github.com/luxsolari/lux-solari-hermes-plugins/actions/workflows/test.yml/badge.svg)](https://github.com/luxsolari/lux-solari-hermes-plugins/actions/workflows/test.yml)
+
 Hermes-native skill ports of [Lux Solari's Codex collection](https://github.com/luxsolari/lux-solari-codex-plugins), alongside the [Claude collection](https://github.com/luxsolari/lux-solari-plugins).
 
 This repository is a **skill tap**, not a Codex/Claude marketplace manifest and not a collection of registered native Python plugins. Each skill includes its supporting files. Native tools or hooks belong in a later plugin package only when they need executable registration.
@@ -53,10 +57,34 @@ On Windows, activate `.venv\\Scripts\\Activate.ps1` instead. Tests check the nin
 
 `SOURCE.json` records the source revision and copied-file checksums. Original supporting material is retained where useful; historical source-command documents are references, not Hermes registrations.
 
+## Releases and Whiting
+
+Collection versions live in `VERSION`; inherited skill and engine versions remain independent. Release notes come from the matching version section in `CHANGELOG.md`, not generated commit summaries. The release archive contains the full tracked repository, including the original notices and reference assets.
+
+Activate Whiting's repository-local hooks after cloning:
+
+```sh
+git config core.hooksPath scripts/hooks
+git config whiting.defaultbranch main
+```
+
+The hooks reject malformed commit subjects and direct pushes to `main`. They allow feature branches and release tags. They are local guardrails, not GitHub branch protection; server-side protection is not configured by this repository.
+
+Use `/whiting semver-release` (or ask the agent to load `whiting` and follow its release procedure). The maintainer sequence is:
+
+1. Run `python scripts/suggest_version_bump.py` and review its recommendation.
+2. On a branch, update `VERSION`, move the selected changes from `[Unreleased]` into a dated changelog section, and run `python scripts/run_checks.py` plus `python scripts/validate_release.py vX.Y.Z`.
+3. Open a PR and merge it after the checks pass.
+4. Fetch the merged `main`, create an annotated `vX.Y.Z` tag on that exact commit, and push the tag. Do not move an existing release tag.
+
+The Release workflow checks the tag's identity and ancestry on `main`, reruns offline tests, checks version and notes, then publishes a GitHub Release with a `.tar.gz` source archive and `SHA256SUMS`. A manual dispatch with an existing tag can retry publication; it uses the tagged tree, not the current branch, and replaces that tag's assets. It does not automatically bump versions or create tags.
+
+Tagged archives are release snapshots. Normal Hermes tap installations still follow the repository's default branch; creating a release does not pin or upgrade installed skills.
+
 ## Verification status
 
 - Hermes discovers all nine tap entries.
-- 120 Python tests and three Whiting shell suites passed locally; GitHub Actions also passed on the audited code revision.
+- 129 Python tests and three Whiting shell suites passed locally after adding release-gate and repository-hook checks. Remote CI evidence is recorded in `JOURNAL.md`.
 - Eight default installations were exercised in disposable Hermes homes. SHA-256 readback matched 184 installed files to the checkout, including all 53 reference PNGs.
 - Hannah was fetched and scanned but **not installed**: the normal community-source scan blocks its `caution` verdict. The live smoke-test command therefore exits non-zero until that blocker is resolved.
 - No existing installed skills were replaced. No live image generation, instructor conversation, or Swiss browser rendering was tested.
