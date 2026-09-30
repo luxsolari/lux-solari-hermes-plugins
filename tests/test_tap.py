@@ -63,6 +63,11 @@ class TapContractTests(unittest.TestCase):
         self.assertTrue((folder / 'hannah' / '__main__.py').is_file())
         self.assertTrue((folder / 'pyproject.toml').is_file())
 
+    def test_sage_snapshot_is_downloadable(self):
+        snapshot = ROOT / 'skills/sage-instructor/references/three-axes-upstream-snapshot.md'
+        self.assertTrue(snapshot.is_file())
+        self.assertFalse(snapshot.name.startswith('.'))
+
     def test_no_symlinks_or_generated_python(self):
         for path in (ROOT / 'skills').rglob('*'):
             self.assertFalse(path.is_symlink(), str(path))

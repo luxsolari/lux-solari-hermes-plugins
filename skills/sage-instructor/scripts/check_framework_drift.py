@@ -27,7 +27,7 @@ import urllib.request
 from pathlib import Path
 
 UPSTREAM_URL = "https://raw.githubusercontent.com/luxsolari/three-axes-framework/main/skills/three-axes-framework/SKILL.md"
-SNAPSHOT_PATH = Path(__file__).resolve().parent.parent / "references" / ".three-axes-upstream-snapshot.md"
+SNAPSHOT_PATH = Path(__file__).resolve().parent.parent / "references" / "three-axes-upstream-snapshot.md"
 
 
 def fetch_upstream() -> str:

@@ -15,7 +15,7 @@ spec.loader.exec_module(drift)
 
 class DriftTests(unittest.TestCase):
     def test_snapshot_path_and_clean_offline(self):
-        expected = ROOT / "references/.three-axes-upstream-snapshot.md"
+        expected = ROOT / "references/three-axes-upstream-snapshot.md"
         self.assertEqual(drift.SNAPSHOT_PATH, expected)
         self.assertTrue(expected.is_file())
         with patch.object(drift, "fetch_upstream", return_value=expected.read_text(encoding="utf-8")), patch.object(drift.sys, "stdout", io.TextIOWrapper(io.BytesIO(), encoding="utf-8")):
