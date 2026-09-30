@@ -1,5 +1,13 @@
 # Journal
 
+## Publication and clean-home readback
+
+- Changed: published the public Hermes sibling repository and documented the live install results.
+- Verified: Hermes's actual tap enumerator discovers all nine names. Eight default installs succeeded in disposable `HERMES_HOME` directories; readback compared 184 installed files against the checkout by SHA-256 with no missing/changed files. This includes all visual assets. Code revision `baef023390d70eacbd3ee3acaa8b1dfe4deb31db` passed GitHub Actions run `36659606232`; local checks report 120 Python tests and three shell suites passing. All nine pass real frontmatter/support-parser checks. Eight scanner verdicts are `safe`, Hannah is `caution`.
+- Open: Hannah's community-source install is blocked by the normal scanner; no override was applied. Source shell/git aliases are not native Hermes lifecycle registrations. Image generation, instructor behavior, Swiss rendered appearance, Windows/macOS execution, and installed Sage dev-test dotfile fixtures were not exercised. Existing installed skills were not replaced.
+- Ruled out: GitHub's repository readback and Actions status—not a successful push alone—support publication/CI claims. Install return codes—notably zero on refusal—were not trusted without file readback.
+- Files: `README.md`, `JOURNAL.md`, live smoke-test script; raw install/scanner results retained in session scratch rather than committed as stale generated reports.
+
 ## Live installer boundary audit
 
 - Changed: replaced directory-only support references in Three Axes/Whiting with explicit files or unambiguous target-project paths. Real GitHubSource fetch rejected tree-directory entries as non-regular referenced files despite valid local frontmatter; the CLI mislabeled this as a stale index. Added actual support-parser checks to the probe and reused existing gh authentication without persisting credentials.

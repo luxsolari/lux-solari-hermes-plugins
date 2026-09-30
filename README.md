@@ -53,6 +53,20 @@ On Windows, activate `.venv\\Scripts\\Activate.ps1` instead. Tests check the nin
 
 `SOURCE.json` records the source revision and copied-file checksums. Original supporting material is retained where useful; historical source-command documents are references, not Hermes registrations.
 
+## Verification status
+
+- Hermes discovers all nine tap entries.
+- 120 Python tests and three Whiting shell suites passed locally; GitHub Actions also passed on the audited code revision.
+- Eight default installations were exercised in disposable Hermes homes. SHA-256 readback matched 184 installed files to the checkout, including all 53 reference PNGs.
+- Hannah was fetched and scanned but **not installed**: the normal community-source scan blocks its `caution` verdict. The live smoke-test command therefore exits non-zero until that blocker is resolved.
+- No existing installed skills were replaced. No live image generation, instructor conversation, or Swiss browser rendering was tested.
+
+For a networked installation/readback check (requires Hermes and authenticated `gh` for reliable GitHub API capacity):
+
+```sh
+python scripts/test_install.py
+```
+
 ## Licensing
 
 Root code is MIT licensed. Per-skill `LICENSE`, `LICENSE-DESIGN`, and `NOTICE.md` files retain the upstream terms. **Do not assume the reference images, house marks, or design material are MIT licensed** just because the root code is. Read the relevant skill's terms before reuse.
