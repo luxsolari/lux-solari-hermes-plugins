@@ -13,6 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 def check(folder):
     with tempfile.TemporaryDirectory(prefix='hermes-port-install-') as home:
         env = dict(os.environ, HERMES_HOME=home, PYTHONDONTWRITEBYTECODE='1')
+        # Reuse the existing gh login without printing or persisting its token.
+        if not env.get('GITHUB_TOKEN') and not env.get('GH_TOKEN'):
+            auth = subprocess.run(['gh', 'auth', 'token'], capture_output=True, text=True)
+            if auth.returncode == 0:
+                env['GH_TOKEN'] = auth.stdout.strip()
         result = subprocess.run(['hermes', 'skills', 'install', f'luxsolari/lux-solari-hermes-plugins/skills/{folder.name}', '--yes'], env=env, capture_output=True, text=True, timeout=300)
         roots = list((Path(home) / 'skills').rglob(folder.name + '/SKILL.md'))
         missing, changed = [], []

@@ -1,5 +1,13 @@
 # Journal
 
+## Live installer boundary audit
+
+- Changed: replaced directory-only support references in Three Axes/Whiting with explicit files or unambiguous target-project paths. Real GitHubSource fetch rejected tree-directory entries as non-regular referenced files despite valid local frontmatter; the CLI mislabeled this as a stale index. Added actual support-parser checks to the probe and reused existing gh authentication without persisting credentials.
+- Verified: first clean-home pass downloaded six skills byte-for-byte, including all 53 PNGs and visible Sage snapshot. Retried Three Axes/Whiting and traced rejection to the directory references, not missing upstream files or GitHub rate limits. Remote CI for prior code revision passed.
+- Open: clean-home readback after directory-reference repair; Hannah remains blocked with community-source `caution` (upstream service-management advice). No `--force` or trust/scanner bypass applied. Live visual/instructor behavior and native hook registrations remain unverified.
+- Ruled out: successful CLI exit code alone proves nothing: Hermes returned zero for scan-blocked and fetch-failed installs. Smoke tests require exact installed-file readback instead.
+- Files: `scripts/hermes_probe.py`, `scripts/test_install.py`, Three Axes/Whiting skill bodies, `README.md`.
+
 ## Tap-download boundary regression
 
 - Changed: renamed Sage's hidden upstream snapshot to a visible filename and updated checker/test paths; Hermes's GitHub bundler excludes dotfiles. Added a regression test and live clean-home installer smoke test.

@@ -12,7 +12,7 @@ hermes skills search tri-swiss
 hermes skills install luxsolari/lux-solari-hermes-plugins/skills/tri-swiss
 ```
 
-Install another skill by replacing `tri-swiss` with its directory name below. The full identifier includes `skills/`. Adding a tap makes it discoverable; it does not install the collection. Installations go into the active Hermes profile and use Hermes's normal security scanner. The initial local scan reports eight `safe` verdicts and Hannah `caution` (including upstream privileged service-restart advice); asset-size findings remain visible for the visual skills. Review findings; do not disable scanning to make an installation pass.
+Install another skill by replacing `tri-swiss` with its directory name below. The full identifier includes `skills/`. Adding a tap makes it discoverable; it does not install the collection. Installations go into the active Hermes profile and use Hermes's normal security scanner. The initial local scan reports eight `safe` verdicts and Hannah `caution` (including upstream privileged service-restart advice). **Hermes blocks Hannah's default community-source installation at that verdict; it remains a published port with an installation blocker, not a clean-install claim.** Asset-size findings remain visible for the visual skills. Review findings; do not disable scanning to make an installation pass.
 
 Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the agent to load the skill. Historical command names documented in source material are not automatically registered as independent Hermes commands.
 

@@ -227,7 +227,8 @@ Do not migrate or write legacy Codex/Claude profiles without explicit approval.
 - Command wording is natural-language routing, not a shell executable. Hermes
   skill invocation does not install the original host's command registry.
 - Upstream wording is preserved in `references/source-SKILL.md` and
-  `references/source-commands/` for provenance; host-specific paths/hooks there
+  `references/source-commands/three-axes-setup.md` and its sibling command records
+  for provenance; host-specific paths/hooks there
   are not Hermes instructions.
 
 ## Verification

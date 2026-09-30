@@ -97,7 +97,7 @@ AGENTS.md directly. Never assume that import syntax works in every host.
 
 1. Check `git config --get core.hooksPath`; if another tool owns it, stop and ask.
 2. Copy the **shipped** `scripts/hooks/commit-msg` and `scripts/hooks/pre-push`
-   from `<skill-root>` into the target repo's `scripts/hooks/`. Do not substitute
+   from `<skill-root>` into the target repository's hook directory. Do not substitute
    inline approximations: pre-push inspects remote refs on stdin, not the currently
    checked-out branch, so legitimate tag pushes remain allowed.
 3. Via `terminal`, set executable permissions and the confirmed local config:
@@ -105,7 +105,7 @@ AGENTS.md directly. Never assume that import syntax works in every host.
 ```sh
 chmod +x scripts/hooks/commit-msg scripts/hooks/pre-push
 git config whiting.defaultbranch "<confirmed-default-branch>"
-git config core.hooksPath scripts/hooks
+git config core.hooksPath './scripts/hooks'
 ```
 
 4. Render/merge the working agreements using repo-init's table. Copy
