@@ -1,5 +1,15 @@
 # Journal
 
+## 2026-09-29 — First release published and downloaded
+
+- Independent review of the staged implementation returned no blocking security/logic issues. Baseline had 120 passing Python tests; the new suite has 129 passing tests and three passing shell suites. Review suggestions remain optional: exercise the root bump-helper copy directly and expand adjacent/missing changelog-section cases.
+- Landed release machinery through checked PR #1 (https://github.com/luxsolari/lux-solari-hermes-plugins/pull/1); both branch/PR package checks passed. Whiting's bump helper suggested `v0.1.0`. Created and pushed an annotated tag on merged main commit `5e443cbf85706d02bbda46a2798c34805d445916` without moving any existing tag.
+- Tag release workflow https://github.com/luxsolari/lux-solari-hermes-plugins/actions/runs/36661603932 passed and published https://github.com/luxsolari/lux-solari-hermes-plugins/releases/tag/v0.1.0. Manual retry https://github.com/luxsolari/lux-solari-hermes-plugins/actions/runs/36661694085 also passed; archive and checksum digests were unchanged.
+- Downloaded both uploaded assets into scratch. `sha256sum --check SHA256SUMS` passed. The archive SHA-256 was `e9d7f1933668a2f1d02a97a24918407787790afc12263bd26572659ec54b295a`. All 257 tracked archive files matched tagged Git blob hashes, including 53 PNGs; archived VERSION was `0.1.0`. Published notes matched changelog extraction exactly; release is non-draft and non-prerelease.
+- Open: Hannah's scanner blocker, live runtime parity checks, optional review test extensions, and upgrading template-derived action major versions. CI warns that checkout@v4/setup-python@v5 target deprecated Node 20; GitHub ran them on Node 24 successfully. Ubuntu-latest also carries a future image-migration notice. Local hooks are enabled only in this checkout; no server-side branch protection was added.
+- Ruled out: mutating the published tag to include this later evidence entry, advertising tap installs as pinned releases, and treating a successful workflow as sufficient without downloading/readback.
+- Files: `JOURNAL.md`; implementation files listed in the preceding entry. Release archives are under scratch, not tracked.
+
 ## 2026-09-29 — Whiting release machinery (publication pending)
 
 - Added collection `VERSION` (initial `0.1.0`), a dated changelog, Whiting-derived working agreements, root hooks, changelog extractor and semantic-version suggestion helper. Enabled the hooks and protected default-branch setting only in this checkout's Git config.
