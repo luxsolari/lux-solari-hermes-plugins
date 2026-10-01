@@ -1,5 +1,14 @@
 # Journal
 
+## 2026-10-01 — Bauer v0.1.1 documentation sync (PR publication)
+
+- Changed: synced the 12 packaged Bauer files from exact canonical `9870701ce5fa73cecc71a9ed2e1935eeebb8e943`, updated its independent SOURCE revision/version/SKILL digest and package-contract assertions, and refreshed this tap's Bauer README/Unreleased notes. Only SKILL.md bytes changed in the package (version 0.1.1); all four helpers, references and notices remain unchanged. Original collection provenance/checksums, collection VERSION and unrelated skills are preserved.
+- Verified: the new revision assertion failed against the old pin before syncing. The existing `scripts/run_checks.py` returned 132 passing Python tests (19+49+2+11+3+2+46) and three passing shell suites. Exact canonical Git-blob comparison and SHA-256 checks verified all 12 files. The existing `scripts/hermes_probe.py`, run through the installed Hermes runtime interpreter with normal `source='community'` scanning, accepted all ten frontmatters/support paths with no directory references; nine verdicts were safe, Bauer included, and Hannah remained caution. Bauer's medium API-key environment-read match is retained as the scanner's informational finding. `git diff --check` passed.
+- Boundaries: canonical v0.1.1 is a documentation-only release, not a helper/security fix. Actual canonical dogfood used Claude Code's session-local plugin and Codex's local skill, not activated marketplace plugins; frozen targets were unchanged. Cached guidance, unproven publication-wording candidate, required LLM extraction, best-effort secret screening and fail-closed OSV leap seconds remain visible. Prior v0.1.0 public-install evidence is not a new v0.1.1 install claim.
+- Environment issue: the existing `hermes` wrapper points at a removed disposable interpreter and fails before startup. Used the existing installed-runtime interpreter directly to execute the established probe via runpy; did not repair the wrapper or touch active profiles/runtime configuration. Scanner remained enabled with no bypass.
+- Open: checked branch/regular PR publication, canonical release CI and parent-controlled merge, followed by v0.1.1 public tap installation/readback. No merge/admin override, active installation, live advisory/Jev requests or canonical edits. Scratch worktree starts at origin/main; other checkouts are untouched.
+- Files: `skills/bauer/SKILL.md`, `SOURCE.json`, `tests/test_bauer.py`, `README.md`, `CHANGELOG.md`, `JOURNAL.md`; scratch scanner evidence at `hermes-bauer-v0.1.1-scan.json`.
+
 ## 2026-10-01 — Bauer canonical provenance refresh (publication pending)
 
 - Changed: refreshed only Bauer's independent `additional_sources.bauer.revision` and its package-contract test to canonical `213f085dcd316923aab78324c8ea6a3e58713c34`; corrected the matching Unreleased changelog pin. The earlier integration entry retains its historical source revision.
