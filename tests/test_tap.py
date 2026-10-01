@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 NAMES = {
     'three-axes-framework', 'sage-instructor', 'whiting', 'hannah',
     'lux-swiss', 'tri-swiss', 'anime-identity-designer',
-    'lux-visual-systems', 'machine-pilgrim',
+    'lux-visual-systems', 'machine-pilgrim', 'bauer',
 }
 
 

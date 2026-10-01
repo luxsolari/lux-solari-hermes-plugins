@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Added
+- Bauer v0.1.0 security-audit skill from canonical revision `213f085dcd316923aab78324c8ea6a3e58713c34`, including all four helpers, five references, license and third-party notice.
+- Ten-skill inventory, Bauer pinned-source byte-parity checks and local helper CLI checks; independent provenance in `SOURCE.json` preserves the original collection checksums.
+
+### Known limitations
+- Bauer is an agent-driven evidence workflow, not an autonomous scanner or security certification. No live OWASP, OSV or TypeSafe/Jev queries or Bauer installation were exercised. Its OSV helper fails closed on RFC3339 leap-second timestamps.
+- Hannah’s normal community-source installation remains scanner-blocked; no override or trust bypass was applied.
+
 ## [0.1.0] — 2026-09-29
 
 ### Added
