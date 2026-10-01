@@ -6,8 +6,12 @@
 - Bauer v0.1.0 security-audit skill from canonical revision `213f085dcd316923aab78324c8ea6a3e58713c34`, including all four helpers, five references, license and third-party notice.
 - Ten-skill inventory, Bauer pinned-source byte-parity checks and local helper CLI checks; independent provenance in `SOURCE.json` preserves the original collection checksums.
 
+### Changed
+- Sync Bauer v0.1.1 from canonical revision `9870701ce5fa73cecc71a9ed2e1935eeebb8e943`; refresh its skill version, independent source pin/checksums and package contract. This is a documentation-only canonical release with no helper behavior changes; the collection VERSION remains independent.
+- Record actual Claude Code session-local plugin and Codex local-skill dogfood boundaries, not activated marketplace-plugin execution. Retain cached-guidance, publication-wording, required LLM document extraction, best-effort secret screening and OSV leap-second limitations.
+
 ### Known limitations
-- Bauer is an agent-driven evidence workflow, not an autonomous scanner or security certification. No live OWASP, OSV or TypeSafe/Jev queries or Bauer installation were exercised. Its OSV helper fails closed on RFC3339 leap-second timestamps.
+- Bauer is an agent-driven evidence workflow, not an autonomous scanner or security certification. No live OWASP, OSV or TypeSafe/Jev queries or new Bauer installation were exercised during this sync. Canonical v0.1.0's public CLI install/readback is historical evidence, not v0.1.1 install verification. Its OSV helper fails closed on RFC3339 leap-second timestamps.
 - Hannah’s normal community-source installation remains scanner-blocked; no override or trust bypass was applied.
 
 ## [0.1.0] — 2026-09-29

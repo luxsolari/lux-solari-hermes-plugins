@@ -41,7 +41,9 @@ These are initial ports, not a certification of 1:1 runtime parity. Source hooks
 
 Hannah's engine ships inside its skill directory; see its prerequisites before invoking it. Visual skills ship the original reference PNGs and canon documents. They use Hermes image generation when a backend is available. Packaging tests do not prove image-provider availability, portrait fidelity, or pedagogical behavior.
 
-Bauer v0.1.0 ships unchanged from its canonical repository with four standard-library Python helpers and five references. It is an agent-driven audit workflow, not an autonomous scanner or security certification. Dependency inventory disclosure and optional TypeSafe/Jev evidence review require explicit consent; no remote queries run during packaging checks. Its OSV helper fails closed on RFC3339 leap-second timestamps (`:60`); such responses remain incomplete, not zero-finding results.
+Bauer v0.1.1 ships unchanged from canonical revision `9870701ce5fa73cecc71a9ed2e1935eeebb8e943` with four standard-library Python helpers and five references. This is a documentation/version refresh, with no helper behavior changes. It is an agent-driven audit workflow, not an autonomous scanner or security certification. Dependency inventory disclosure and optional TypeSafe/Jev evidence review require explicit consent; no remote queries run during packaging checks. Its OSV helper fails closed on RFC3339 leap-second timestamps (`:60`); such responses remain incomplete, not zero-finding results.
+
+Canonical host dogfood exercised Claude Code's session-local `bauer:bauer` plugin route and Codex's local skill route, not activated marketplace plugins. Both used cached guidance and left frozen source trees unchanged; no new demonstrated security vulnerability was established. Publication-status wording remains a bounded, unproven candidate, LLM document extraction is mandatory, and secret-pattern screening is best effort—not a substitute for reviewing each packet before disclosure. These scoped results are not a detection benchmark or safety certification.
 
 Your currently installed skills are independent of this checkout. Creating this repository does not replace them.
 
@@ -86,7 +88,7 @@ Tagged archives are release snapshots. Normal Hermes tap installations still fol
 
 ## Verification status
 
-- The local ten-skill inventory passes packaging checks. Hermes’s actual frontmatter validator and support parser accept all ten; the community-source scanner returns nine `safe` verdicts and Hannah `caution`. Bauer’s informational API-key-read finding remains visible. Remote tap discovery was previously verified for the original nine; Bauer’s remote discovery/install is pending publication.
+- The local ten-skill inventory passes packaging checks. Hermes’s actual frontmatter validator and support parser accept all ten; the community-source scanner returns nine `safe` verdicts and Hannah `caution`. Bauer’s informational API-key-read finding remains visible. Canonical v0.1.0's public Bauer tap discovery/install was separately exercised through the actual CLI with authenticated GitHub access, normal scanning and twelve-file readback. That historical evidence does not verify v0.1.1 installation; a new published-package readback remains pending after this sync lands.
 - 132 Python tests and three Whiting shell suites passed locally, including Bauer’s inventory, pinned-source byte parity, and four helper CLI help checks. Remote CI evidence for the previous release is recorded in `JOURNAL.md`.
 - Eight default installations were exercised in disposable Hermes homes. SHA-256 readback matched 184 installed files to the checkout, including all 53 reference PNGs.
 - Hannah was fetched and scanned but **not installed**: the normal community-source scan blocks its `caution` verdict. The live smoke-test command therefore exits non-zero until that blocker is resolved.
