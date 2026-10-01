@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / 'skills/bauer'
-REVISION = '9870701ce5fa73cecc71a9ed2e1935eeebb8e943'
+REVISION = '8dd9d1d5175187255398562e0381a6118896d9cf'
 FILES = {
     'SKILL.md', 'references/advisories.md', 'references/jev.md',
     'references/report.md', 'references/security-sources.json',
