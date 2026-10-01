@@ -1,5 +1,12 @@
 # Journal
 
+## 2026-10-01 — Current Bauer setup/provenance synchronization
+
+- Repinned only independent Bauer provenance/test from `9870701ce5fa73cecc71a9ed2e1935eeebb8e943` to `8dd9d1d5175187255398562e0381a6118896d9cf`; README/Unreleased notes link current persistent-environment and recommended 1Password setup. All 12 shipped files match current canonical Git blobs and existing SHA-256 values, and remain byte-identical to v0.1.1. Canonical README is not shipped in the skill; no arbitrary inventory expansion. Original collection provenance, all checksums, versions and runtime bytes unchanged.
+- Revision regression failed before SOURCE update, then existing checks passed: 132 Python tests plus three shell suites; four helper help checks included. Exact 12-file parity and git diff --check passed.
+- Independent read-only Codex review returned passed=true with no blocking findings, verifying both diffs, current setup anchors, unchanged catalog/runtime, full 12-file canonical/tag parity and original provenance. User permits push/merge/admin after review and green exact-head CI. New public installation/activated runtime, live vault retrieval and external queries not exercised; prior scanner/install evidence remains historical. No canonical edits, tag rewrites, credential or profile changes. Original checkout branch preserved via scratch worktree.
+- Files: SOURCE.json, tests/test_bauer.py, README.md, CHANGELOG.md, JOURNAL.md; skills/bauer unchanged.
+
 ## 2026-10-01 — Bauer v0.1.1 documentation sync (PR publication)
 
 - Changed: synced the 12 packaged Bauer files from exact canonical `9870701ce5fa73cecc71a9ed2e1935eeebb8e943`, updated its independent SOURCE revision/version/SKILL digest and package-contract assertions, and refreshed this tap's Bauer README/Unreleased notes. Only SKILL.md bytes changed in the package (version 0.1.1); all four helpers, references and notices remain unchanged. Original collection provenance/checksums, collection VERSION and unrelated skills are preserved.

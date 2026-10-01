@@ -7,6 +7,7 @@
 - Ten-skill inventory, Bauer pinned-source byte-parity checks and local helper CLI checks; independent provenance in `SOURCE.json` preserves the original collection checksums.
 
 ### Changed
+- Repin Bauer provenance to post-tag canonical `8dd9d1d5175187255398562e0381a6118896d9cf` after the persistent-environment/1Password README correction. All twelve shipped files and checksums remain unchanged; link current setup guidance without copying the canonical README into the installed skill or rewriting release tags.
 - Sync Bauer v0.1.1 from canonical revision `9870701ce5fa73cecc71a9ed2e1935eeebb8e943`; refresh its skill version, independent source pin/checksums and package contract. This is a documentation-only canonical release with no helper behavior changes; the collection VERSION remains independent.
 - Record actual Claude Code session-local plugin and Codex local-skill dogfood boundaries, not activated marketplace-plugin execution. Retain cached-guidance, publication-wording, required LLM document extraction, best-effort secret screening and OSV leap-second limitations.
 
