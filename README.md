@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/code-MIT-blue)](LICENSE)
 [![Checks](https://github.com/luxsolari/lux-solari-hermes-plugins/actions/workflows/test.yml/badge.svg)](https://github.com/luxsolari/lux-solari-hermes-plugins/actions/workflows/test.yml)
 
-Hermes-native skill ports of [Lux Solari's Codex collection](https://github.com/luxsolari/lux-solari-codex-plugins), alongside the [Claude collection](https://github.com/luxsolari/lux-solari-plugins).
+Hermes-native skills, including [Bauer](https://github.com/luxsolari/bauer), and ports of [Lux Solari's Codex collection](https://github.com/luxsolari/lux-solari-codex-plugins), alongside the [Claude collection](https://github.com/luxsolari/lux-solari-plugins).
 
 This repository is a **skill tap**, not a Codex/Claude marketplace manifest and not a collection of registered native Python plugins. Each skill includes its supporting files. Native tools or hooks belong in a later plugin package only when they need executable registration.
 
@@ -16,7 +16,7 @@ hermes skills search tri-swiss
 hermes skills install luxsolari/lux-solari-hermes-plugins/skills/tri-swiss
 ```
 
-Install another skill by replacing `tri-swiss` with its directory name below. The full identifier includes `skills/`. Adding a tap makes it discoverable; it does not install the collection. Installations go into the active Hermes profile and use Hermes's normal security scanner. The initial local scan reports eight `safe` verdicts and Hannah `caution` (including upstream privileged service-restart advice). **Hermes blocks Hannah's default community-source installation at that verdict; it remains a published port with an installation blocker, not a clean-install claim.** Asset-size findings remain visible for the visual skills. Review findings; do not disable scanning to make an installation pass.
+Install another skill by replacing `tri-swiss` with its directory name below. The full identifier includes `skills/`. Adding a tap makes it discoverable; it does not install the collection. Installations go into the active Hermes profile and use Hermes's normal security scanner. The current local scan reports nine `safe` verdicts (including Bauer) and Hannah `caution` (including upstream privileged service-restart advice). **Hermes blocks Hannah's default community-source installation at that verdict; it remains a published port with an installation blocker, not a clean-install claim.** Asset-size findings remain visible for the visual skills. Review findings; do not disable scanning to make an installation pass.
 
 Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the agent to load the skill. Historical command names documented in source material are not automatically registered as independent Hermes commands.
 
@@ -28,6 +28,7 @@ Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the 
 | sage-instructor | Explicit instructor mode, tracks, lessons, and progress |
 | whiting | Repository setup, inspection, commits, and release discipline |
 | hannah | Hardware-aware local-model recommendations; bundled Python engine |
+| bauer | Evidence-backed OWASP security audits, advisory and supply-chain review |
 | lux-swiss | Swiss visual system with ink, cream, and red |
 | tri-swiss | Swiss visual system with a governed turquoise accent |
 | anime-identity-designer | Anime identity art direction and image generation |
@@ -39,6 +40,8 @@ Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the 
 These are initial ports, not a certification of 1:1 runtime parity. Source hooks, marketplace launchers, and multi-command registrations do not become executable Hermes hooks merely by copying their prose. Skills provide on-demand instructions; they are not guaranteed global personality injection.
 
 Hannah's engine ships inside its skill directory; see its prerequisites before invoking it. Visual skills ship the original reference PNGs and canon documents. They use Hermes image generation when a backend is available. Packaging tests do not prove image-provider availability, portrait fidelity, or pedagogical behavior.
+
+Bauer v0.1.0 ships unchanged from its canonical repository with four standard-library Python helpers and five references. It is an agent-driven audit workflow, not an autonomous scanner or security certification. Dependency inventory disclosure and optional TypeSafe/Jev evidence review require explicit consent; no remote queries run during packaging checks. Its OSV helper fails closed on RFC3339 leap-second timestamps (`:60`); such responses remain incomplete, not zero-finding results.
 
 Your currently installed skills are independent of this checkout. Creating this repository does not replace them.
 
@@ -53,9 +56,9 @@ python -m pip install -r requirements-dev.txt
 python scripts/run_checks.py
 ```
 
-On Windows, activate `.venv\\Scripts\\Activate.ps1` instead. Tests check the nine-skill inventory, frontmatter, explicit support paths, image inventory, engine packaging, and repository hygiene. Read `JOURNAL.md` for execution evidence and remaining gaps.
+On Windows, activate `.venv\\Scripts\\Activate.ps1` instead. Tests check the ten-skill inventory, frontmatter, explicit support paths, image inventory, engine packaging, and repository hygiene. Read `JOURNAL.md` for execution evidence and remaining gaps.
 
-`SOURCE.json` records the source revision and copied-file checksums. Original supporting material is retained where useful; historical source-command documents are references, not Hermes registrations.
+`SOURCE.json` records the original collection source revision and checksums; `additional_sources.bauer` pins Bauer’s independent canonical revision and checksums for all ten skill files plus its per-skill license and notice. Bauer’s source-parity tests verify exact packaged bytes against those pinned digests. Original supporting material is retained where useful; historical source-command documents are references, not Hermes registrations.
 
 ## Releases and Whiting
 
@@ -83,8 +86,8 @@ Tagged archives are release snapshots. Normal Hermes tap installations still fol
 
 ## Verification status
 
-- Hermes discovers all nine tap entries.
-- 129 Python tests and three Whiting shell suites passed locally after adding release-gate and repository-hook checks. Remote CI evidence is recorded in `JOURNAL.md`.
+- The local ten-skill inventory passes packaging checks. Hermes’s actual frontmatter validator and support parser accept all ten; the community-source scanner returns nine `safe` verdicts and Hannah `caution`. Bauer’s informational API-key-read finding remains visible. Remote tap discovery was previously verified for the original nine; Bauer’s remote discovery/install is pending publication.
+- 132 Python tests and three Whiting shell suites passed locally, including Bauer’s inventory, pinned-source byte parity, and four helper CLI help checks. Remote CI evidence for the previous release is recorded in `JOURNAL.md`.
 - Eight default installations were exercised in disposable Hermes homes. SHA-256 readback matched 184 installed files to the checkout, including all 53 reference PNGs.
 - Hannah was fetched and scanned but **not installed**: the normal community-source scan blocks its `caution` verdict. The live smoke-test command therefore exits non-zero until that blocker is resolved.
 - No existing installed skills were replaced. No live image generation, instructor conversation, or Swiss browser rendering was tested.
