@@ -121,6 +121,43 @@ def normalize(document):
     result = dict(document)
     result.update(schema_version='1.0', findings=findings,
                   counts={level: sum(item['severity'] == level for item in findings) for level in SEVERITIES})
+    if 'jev_selection' in document and 'jev_policy' not in document:
+        raise ValueError('selection requires explicit policy')
+    if 'jev_policy' in document:
+        supplied = document['jev_policy']
+        if not isinstance(supplied, dict) or set(supplied) - {'policy_version', 'enabled', 'min_severity'}:
+            raise ValueError('invalid Jev policy')
+        policy = dict(policy_version='bauer-jev-selection-v1', enabled=False, min_severity='MEDIUM')
+        policy.update(supplied)
+        if (policy['policy_version'] != 'bauer-jev-selection-v1' or type(policy['enabled']) is not bool
+                or policy['min_severity'] not in SEVERITIES):
+            raise ValueError('invalid Jev policy metadata')
+        result['jev_policy'] = policy
+        queue = []
+        for item in findings:
+            eligible = SEVERITIES.index(item['severity']) <= SEVERITIES.index(policy['min_severity'])
+            state, reason = 'disabled', 'policy_disabled'
+            if policy['enabled']:
+                state, reason = (('pending_packet_approval', 'severity_at_or_above_threshold') if eligible
+                                 else ('not_selected', 'below_min_severity'))
+            queue.append(dict(id=item['id'], severity=item['severity'], status=item['status'],
+                              eligible=eligible, state=state, reason=reason))
+        result['jev_selection'] = dict(policy=policy, queue=queue)
+        if ('jev_selection' in document and
+                json.dumps(document['jev_selection'], sort_keys=True, allow_nan=False) !=
+                json.dumps(result['jev_selection'], sort_keys=True, allow_nan=False)):
+            raise ValueError('selection metadata does not match evidence and policy')
+    from importlib.util import module_from_spec, spec_from_file_location
+    spec = spec_from_file_location('bauer_completion_gate', Path(__file__).resolve().parent / 'completion.py')
+    if spec is None or spec.loader is None:
+        raise ValueError('completion gate unavailable')
+    completion = module_from_spec(spec)
+    spec.loader.exec_module(completion)
+    result['completion_gate'] = completion.evaluate(document)
+    if ('completion_gate' in document and
+            json.dumps(document['completion_gate'], sort_keys=True, allow_nan=False) !=
+            json.dumps(result['completion_gate'], sort_keys=True, allow_nan=False)):
+        raise ValueError('completion metadata does not match supplied records')
     return result
 
 
@@ -156,7 +193,19 @@ def render_markdown(report):
     """Render an already normalized report without collecting new evidence."""
     text = markdown_text
     lines = ['# Bauer audit report', '', 'Scope: ' + text(report['scope']), '', '## Severity counts', '']
-    lines.extend('- ' + level + ': ' + str(report['counts'][level]) for level in SEVERITIES)
+    lines.extend(['| Severity | Count |', '| --- | --- |'])
+    lines.extend('| ' + level + ' | ' + str(report['counts'][level]) + ' |' for level in SEVERITIES)
+    gate = report['completion_gate']
+    lines.extend(['', '## Completion and applicability', '', 'Overall: ' + gate['status'], '',
+                  text(gate['authority']), '',
+                  '| Obligation | Applicability | Outcome | Satisfied | Reason | Evidence |',
+                  '| --- | --- | --- | --- | --- | --- |'])
+    for row in gate['obligations']:
+        reason = row['reason'] + ('; Gate: ' + row['gate_reason'] if 'gate_reason' in row else '')
+        lines.append('| ' + ' | '.join(text(v) for v in (row['id'], row['applicability'], row['status'],
+                     row['satisfied'], reason, row['evidence'])) + ' |')
+    if gate['dependency_coverage'] is not None:
+        lines.extend(['', 'Dependency identity coverage: ' + text(gate['dependency_coverage'])])
     lines.extend(['', '## Findings', ''])
     for finding in report['findings']:
         status = finding['status'] + (' (unconfirmed)' if finding['status'] == 'candidate' else '')
@@ -172,6 +221,21 @@ def render_markdown(report):
         lines.append('')
     if not report['findings']:
         lines.append('No supplied findings; this is not proof of safety.')
+    if 'jev_selection' in report:
+        selection = report['jev_selection']
+        policy = selection['policy']
+        lines.extend(['', '## Jev selection queue', '',
+                      '- Policy version: ' + text(policy['policy_version']),
+                      '- Enabled: ' + str(policy['enabled']).lower(),
+                      '- Minimum severity: ' + policy['min_severity'],
+                      '', 'Eligibility is not disclosure approval; no requests are made by selection.', '',
+                      '| Finding | Severity | Status | Eligible | State | Reason |',
+                      '| --- | --- | --- | --- | --- | --- |'])
+        for item in selection['queue']:
+            lines.append('| ' + ' | '.join(text(item[key]) for key in
+                         ('id', 'severity', 'status', 'eligible', 'state', 'reason')) + ' |')
+        if not selection['queue']:
+            lines.append('No supplied findings to select.')
     lines.extend(['', '## Remediation queue', ''])
     for finding in report['findings']:
         lines.append('- ' + finding['severity'] + ' / ' + finding['id'] + ': ' + text(finding['remediation']))
