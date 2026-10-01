@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / 'skills/bauer'
-REVISION = '69c870e3bc5cfedc204899c9ad08feaef8f7e5d8'
+REVISION = '08320e9155850cbd9b4be2f2051eb62bf4247f81'
 FILES = {
     'SKILL.md', 'references/advisories.md', 'references/jev.md',
     'references/report.md', 'references/security-sources.json',
@@ -29,7 +29,7 @@ class BauerContractTests(unittest.TestCase):
         provenance = json.loads((ROOT / 'SOURCE.json').read_text())['additional_sources']['bauer']
         self.assertEqual(provenance['repository'], 'https://github.com/luxsolari/bauer')
         self.assertEqual(provenance['revision'], REVISION)
-        self.assertEqual(provenance['version'], '0.2.0')
+        self.assertEqual(provenance['version'], '0.2.1')
         paths = {rel if rel in {'LICENSE', 'NOTICE.md'} else 'skills/bauer/' + rel: rel
                  for rel in FILES}
         self.assertEqual(set(provenance['sha256']), set(paths))
@@ -55,6 +55,7 @@ class BauerContractTests(unittest.TestCase):
                 run = subprocess.run([sys.executable, str(SKILL / 'scripts/report.py'), str(evidence), '--format', fmt],
                                      capture_output=True, text=True, timeout=10)
                 self.assertEqual(run.returncode, 0, run.stderr)
+                self.assertIn('Security audits can be token-intensive', run.stdout)
                 if fmt == 'json':
                     gate = json.loads(run.stdout)['completion_gate']
                     self.assertEqual(gate['status'], 'partial')
