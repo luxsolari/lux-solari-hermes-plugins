@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Sync Bauer v0.3.0 at `25cad4f9c2e875444348f738fea012b812ae4287`: eighteen exact skill/license files; Lean/Full/Custom, confirmed run records, scorecards and offline controls. Canonical 138 tests; normal scanning/package execution is distinct from new host activation. Unsigned records validate supplied consistency, not authority. Collection version and original provenance stay unchanged.
+
 ### Added
 - Bauer v0.1.0 security-audit skill from canonical revision `213f085dcd316923aab78324c8ea6a3e58713c34`, including all four helpers, five references, license and third-party notice.
 - Ten-skill inventory, Bauer pinned-source byte-parity checks and local helper CLI checks; independent provenance in `SOURCE.json` preserves the original collection checksums.

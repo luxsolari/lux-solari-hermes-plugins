@@ -41,15 +41,11 @@ These are initial ports, not a certification of 1:1 runtime parity. Source hooks
 
 Hannah's engine ships inside its skill directory; see its prerequisites before invoking it. Visual skills ship the original reference PNGs and canon documents. They use Hermes image generation when a backend is available. Packaging tests do not prove image-provider availability, portrait fidelity, or pedagogical behavior.
 
-Bauer v0.2.1 ships unchanged from canonical revision `08320e9155850cbd9b4be2f2051eb62bf4247f81`: fourteen files, including five standard-library CLI helpers, a completion support module, five references, skill metadata and license/notice. The patch adds actual-chat preflight/closing warnings and generated JSON/Markdown resource notes. Security audits can be token-intensive: repository tracing, source queries, repeated evidence review and reporting can consume substantial tokens. Usage depends on repository scope and host model; no exact estimate is promised. Optional Jev charges are separate. If budget matters, agree on bounded scope; unfinished mandatory checks remain partial under the continuation gate. See [token guidance](https://github.com/luxsolari/bauer/blob/08320e9155850cbd9b4be2f2051eb62bf4247f81/README.md#token-usage).
+Bauer v0.3.0 ships 18 exact files from canonical `25cad4f9c2e875444348f738fea012b812ae4287`. Lean is default; Full and explicit Custom retain required dependency/remote coverage. New audit reports and selection require a confirmed run record. Offline status/scorecard controls inspect saved evidence; the audit control is a plan, not a scanner.
 
-Deterministic Jev selection defaults disabled/MEDIUM; a separate boolean-only helper-environment preflight proactively offers all eligible findings when a key is present. Scheduling opt-in and final packet approval remain separate.
+Security audits can be token-intensive; unfinished checks stay partial and optional Jev charges are separate. You provide the key and environment; Bauer reads `TYPESAFE_API_KEY` in its helper process. Sending evidence still requires approval. See [current setup and host limits](https://github.com/luxsolari/bauer/blob/25cad4f9c2e875444348f738fea012b812ae4287/README.md).
 
-The completion/applicability gate validates supplied records across thirteen sources/frameworks, exact dependency identities and scoped remote targets. Missing/unknown/blocked/unattempted work and contradictory dependency/OSV nonapplicability remain partial. Run report.py for JSON/Markdown; completion.py has no standalone CLI. The gate cannot verify source truth or live deployed settings and adds no feed clients.
-
-See [current Jev credential setup](https://github.com/luxsolari/bauer/blob/08320e9155850cbd9b4be2f2051eb62bf4247f81/README.md#configure-your-key) for persistent terminal environment setup, the recommended 1Password launcher and active-profile Hermes setup. The canonical README is not copied into the installed skill. No real credential setup or live vault retrieval was exercised by this sync; availability does not authorize disclosure.
-
-Canonical frozen synthetic Claude session-local plugin and Codex local-skill exercises checked gate/table mechanics and corrected-helper eligible offers with dummy presence, then stopped for consent. No fresh feed audit, activated marketplace runtime, post-consent Jev API request or new installation is claimed. Cached-guidance, required LLM extraction, best-effort secret screening and fail-closed OSV leap-second limitations remain; these are not a safety certification. Immutable earlier tags, original collection provenance and collection VERSION remain unchanged.
+Unsigned records validate consistency, not user authority or safety. Claude preconfirmation discovery/helper ordering and Codex offline-disable proposals remain known limits; older installs do not prove new host activation. [JOURNAL.md](JOURNAL.md) records verification.
 
 Your currently installed skills are independent of this checkout. Creating this repository does not replace them.
 
@@ -66,7 +62,7 @@ python scripts/run_checks.py
 
 On Windows, activate `.venv\\Scripts\\Activate.ps1` instead. Tests check the ten-skill inventory, frontmatter, explicit support paths, image inventory, engine packaging, and repository hygiene. Read `JOURNAL.md` for execution evidence and remaining gaps.
 
-`SOURCE.json` records the original collection source revision and checksums; `additional_sources.bauer` pins Bauer’s independent canonical revision and checksums for all twelve skill/support files plus its per-skill license and notice. Bauer’s source-parity tests verify exact packaged bytes against those pinned digests. Original supporting material is retained where useful; historical source-command documents are references, not Hermes registrations.
+`SOURCE.json` records the original collection source revision and checksums; `additional_sources.bauer` pins Bauer’s independent canonical revision and checksums for all sixteen skill/support files plus its per-skill license and notice. Bauer’s source-parity tests verify exact packaged bytes against those pinned digests. Original supporting material is retained where useful; historical source-command documents are references, not Hermes registrations.
 
 ## Releases and Whiting
 
@@ -94,8 +90,8 @@ Tagged archives are release snapshots. Normal Hermes tap installations still fol
 
 ## Verification status
 
-- The local ten-skill inventory passes packaging checks. Hermes’s actual frontmatter validator and support parser accept all ten; the community-source scanner returns nine `safe` verdicts and Hannah `caution`. Bauer’s informational API-key-read findings and selection-comment policy-pattern match remain visible. Canonical v0.1.0's public Bauer tap discovery/install was separately exercised through the actual CLI with authenticated GitHub access, normal scanning and twelve-file readback. That historical evidence does not verify v0.2.1 installation; no active installation is required or claimed for this sync.
-- 132 Python tests and three Whiting shell suites passed locally, including Bauer’s inventory, pinned-source byte parity, and five helper CLI help checks plus actual report-gate execution. Remote CI evidence for the previous release is recorded in `JOURNAL.md`.
+- The local ten-skill inventory passes packaging checks. Hermes’s actual frontmatter validator and support parser accept all ten; the community-source scanner returns nine `safe` verdicts and Hannah `caution`. Bauer’s informational API-key-read findings and selection-comment policy-pattern match remain visible. Canonical v0.1.0's public Bauer tap discovery/install was separately exercised through the actual CLI with authenticated GitHub access, normal scanning and twelve-file readback. That historical evidence does not verify v0.3.0 installation; no active installation is required or claimed for this sync.
+- 132 Python tests and three Whiting shell suites passed locally, including Bauer’s inventory, pinned-source byte parity, and six CLI entry-point help checks plus confirmed report-gate execution. Remote CI evidence for the previous release is recorded in `JOURNAL.md`.
 - Eight default installations were exercised in disposable Hermes homes. SHA-256 readback matched 184 installed files to the checkout, including all 53 reference PNGs.
 - Hannah was fetched and scanned but **not installed**: the normal community-source scan blocks its `caution` verdict. The live smoke-test command therefore exits non-zero until that blocker is resolved.
 - No existing installed skills were replaced. No live image generation, instructor conversation, or Swiss browser rendering was tested.

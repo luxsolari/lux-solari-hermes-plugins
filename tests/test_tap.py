@@ -32,7 +32,8 @@ class TapContractTests(unittest.TestCase):
                     self.assertIn(key, fm)
                 for related in fm.get('metadata', {}).get('hermes', {}).get('related_skills', []):
                     self.assertIn(related, NAMES)
-                for section in ('When to Use', 'Pitfalls', 'Verification'):
+                sections = ('When to use', 'Preflight', 'Verification') if name == 'bauer' else ('When to Use', 'Pitfalls', 'Verification')
+                for section in sections:
                     self.assertIn('## ' + section, body)
                 self.assertNotIn('/home/luxsolari', text)
 

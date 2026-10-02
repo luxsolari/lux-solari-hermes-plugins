@@ -1,5 +1,13 @@
 # Journal
 
+## 2026-10-02 — Bauer v0.3.0 bounded release synchronization
+
+- Sync canonical `25cad4f9c2e875444348f738fea012b812ae4287`: profiles, confirmed run records, scorecards and offline controls. 18 exact copied files with complete SHA-256 inventory; no runtime translation.
+- Verified locally: 132 Python tests and three shell suites pass on Python3.11. Normal current-runtime community scan returns Bauer safe, with API-key-read and selection-comment informational findings retained; no force override. 27 actual packaged CLI calls exercise all three modes and record/queue/report/status/card parity. Tap heading assertion updated only for canonical Bauer sentence-case sections, preserving other skill assertions. Broken historical bootstrap wrapper prevents a supported fresh CLI install; this is scanner/package execution, not activation or install proof.
+- Concise README/setup follows final canonical docs. Unsigned records cannot authenticate users or stop host reads/fabricated evidence. Claude target Glob/helper ordering/third-turn delivery and Codex default offline-disable correction remain known limits; no new activated-host installation or certification claim.
+- Preserve original checkout/branches, unrelated work, older tags and profiles. No live advisory/Jev calls, credential reads or production changes. Exact local checks, normal Hermes scanning, package CLI receipts and green-head publication/readbacks: scratch/bauer-v030-publication/receipt.json. Existing Three Axes local failure and Python 3.14 boundary remain separate, not hidden or repaired.
+- Files: Bauer package/inventory/tests where copied; README/JOURNAL and relevant parity/changelog docs. Publication checks/readback remain pending at commit and are recorded in the external receipt.
+
 ## 2026-10-01 — Bauer v0.2.1 resource-warning tap synchronization
 
 - Refresh all14 declared skill/support/license files from exact immutable canonical `08320e9155850cbd9b4be2f2051eb62bf4247f81`; full byte/hash/inventory parity verified. Only SKILL/report reference/report helper bytes change. SOURCE Bauer pin/version/hashes, contract assertion, current README warning/setup links and Unreleased note updated. Original collection provenance/checksums/VERSION and unrelated skills unchanged. Preserve14-file contract: canonical README remains pinned guidance, not an arbitrarily added installed file.
