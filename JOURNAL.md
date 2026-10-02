@@ -1,5 +1,11 @@
 # Journal
 
+## 2026-10-02 — Bauer v0.3.1 documentation-only synchronization
+
+- Refresh complete Codex38/Hermes18 inventories at immutable canonical `ed8ab5f2a7e587faf07560e99a04d0f34f8e6c69` (v0.3.1), exact bytes/SHA-256. Runtime helpers, earlier tags and known host/Python3.14 limits remain unchanged; Claude follows default source without a catalog edit.
+- Verify package tests, validators, offline controls, normal Hermes scanner and exact-head CI before authorized merge. External outcomes: /Users/luxsolari/.hermes/cache/scratch/bauer-v031-publication/receipt.json; pending at freeze. No fresh installation, host audit or live query.
+- Preserve original branches, IDEA.md, collection version/provenance, unrelated packages, profiles and credentials. Files: copied metadata/changelog/tests, source inventories, current README/parity guidance, assertions and JOURNAL.
+
 ## 2026-10-02 — Bauer README editorial synchronization
 
 - Pin canonical post-tag docs revision `fc7ba2eb8f4f91cc12f27fb3c0655c519127691d`, following merged Bauer PR7. All 18 shipped skill/license files and digests are unchanged; advance independent provenance and link the current canonical README outside the inventory. Runtime/version0.3.0 and immutable tag `25cad4f9c2e875444348f738fea012b812ae4287` remain unchanged; no new host sessions or installation claim.
