@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / 'skills/bauer'
-REVISION = 'fc7ba2eb8f4f91cc12f27fb3c0655c519127691d'
+REVISION = 'ed8ab5f2a7e587faf07560e99a04d0f34f8e6c69'
 FILES = {
     'SKILL.md', 'references/advisories.md', 'references/jev.md',
     'references/report.md', 'references/security-sources.json',
@@ -30,7 +30,7 @@ class BauerContractTests(unittest.TestCase):
         provenance = json.loads((ROOT / 'SOURCE.json').read_text())['additional_sources']['bauer']
         self.assertEqual(provenance['repository'], 'https://github.com/luxsolari/bauer')
         self.assertEqual(provenance['revision'], REVISION)
-        self.assertEqual(provenance['version'], '0.3.0')
+        self.assertEqual(provenance['version'], '0.3.1')
         paths = {rel if rel in {'LICENSE', 'NOTICE.md'} else 'skills/bauer/' + rel: rel
                  for rel in FILES}
         self.assertEqual(set(provenance['sha256']), set(paths))
