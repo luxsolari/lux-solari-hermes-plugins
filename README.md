@@ -32,7 +32,7 @@ Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the 
 | lux-swiss | Swiss visual system with ink, cream, and red |
 | tri-swiss | Swiss visual system with a governed turquoise accent |
 | anime-identity-designer | Anime identity art direction and image generation |
-| lux-visual-systems | Lux Solari's editorial and image visual system |
+| lux-visual-systems | Lux Solari's editorial and image visual system; v1.3.0 includes all 57 Craft-stickers reference images |
 | machine-pilgrim | Images grounded in Descent into the Machine canon |
 
 ## Boundaries

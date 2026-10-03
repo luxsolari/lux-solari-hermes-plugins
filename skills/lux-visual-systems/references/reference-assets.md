@@ -2,6 +2,21 @@
 
 All paths are relative to the skill directory.
 
+## Complete craft-sticker collection — 2026-10-03
+
+Read [`craft-stickers.md`](craft-stickers.md) to choose from all 57 supplied vault
+images (56 distinct images). Its category tables link to every packaged original,
+including 13 source files already represented by existing boards; 44 new PNGs
+retain their original filenames under `assets/craft-stickers/`. The companion
+[`craft-stickers.json`](craft-stickers.json) records exact source-to-package
+mapping, dimensions and hashes. The collection is a snapshot; it requires no
+vault access at generation time.
+
+Scan the category relevant to the brief and visually inspect selected originals.
+Use these as supporting references below the canonical master. Film and gaming
+labels demonstrate layout and print vocabulary; their colors, marks and text
+belong to their depicted subjects and do not override the selected system mode.
+
 ## Canonical
 
 - `assets/00_VISUAL_SYSTEM_MASTER.png` — ground truth for palette discipline (apply the selected mode role mapping), typography, grid, negative space, texture, severity, element vocabulary, sticker logic, character-sheet logic, and full-illustration logic.
