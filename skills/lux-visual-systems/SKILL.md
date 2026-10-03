@@ -1,7 +1,7 @@
 ---
 name: lux-visual-systems
 description: "Direct images in Lux Solari’s editorial visual system."
-version: 1.1.0
+version: 1.3.0
 author: Lux Solari (luxsolari), Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
@@ -73,6 +73,7 @@ Then read only what the requested format needs:
 
 - Sticker sheets, character sheets, or full illustrations: `references/formats.md`
 - Choosing packaged visual references: `references/reference-assets.md`
+- Selecting from Lux’s complete craft-sticker collection: `references/craft-stickers.md`. Scan its relevant category for every generation brief, then visually inspect the few candidate originals. Use the categories matching the subject and format; the collection includes character studies, full illustrations, mixed craft sheets, film labels, photography cards, and gaming labels.
 
 `assets/00_VISUAL_SYSTEM_MASTER.png` is shipped and is the canonical visual source.
 Supporting boards demonstrate applications. Inspect and pass the relevant images as
@@ -128,6 +129,7 @@ Choose packaged references deliberately:
 - Prefer a mode-matched board; describe which reference supplies subject identity, system
   grammar, and palette.
 - Prefer the master plus one or two format-specific boards over attaching the whole library.
+- The craft-sticker catalogue maps every source image to a packaged original. Use its images as supporting references below the canonical master; do not inherit unrequested characters, logos, inscriptions, or multicolor palettes. Resolve asset paths relative to the installed skill directory. These references do not silently establish rendering language or color mode.
 - If a current-turn subject image has no accessible URL or local path, obtain an accessible
   copy when likeness requires it. Never imply that conversation context alone attaches it
   to the generator. If reference slots cannot fit everything, prioritize subject identity

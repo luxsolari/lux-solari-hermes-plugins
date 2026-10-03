@@ -1,5 +1,13 @@
 # Journal
 
+## 2026-10-03 — Visual Systems 1.3.0 reference sync
+
+- Sync the full Craft-stickers library from merged Codex `7d373cb8951248a3e530f55f746809622eac31cd`: 57 source names, 56 distinct images, 44 added originals and category catalogue/hash mapping. Copy 76 reference/license/changelog files byte-identically; retain the Hermes SKILL adapter and set its source version to 1.3.0. Add 77 source hashes under independent `additional_sources.lux-visual-systems`; preserve baseline SOURCE fields and collection VERSION 0.1.0.
+- Verified all vault/source mappings and canonical hashes; 134 Python tests and three shell suites pass through the existing Python3.11 environment with bytecode disabled. Independent read-only review found no actionable issues; its ordinary system Python lacked PyYAML, while the full runner above passed with cached dependency access. Whitespace checks pass.
+- Actual Hermes runtime frontmatter/support parser accepts all ten skills, with no directory references. Normal community scanner rates Visual Systems safe; retains 64 oversized-file findings, one too-many-files finding and one oversized-skill finding. Nine skills remain safe; unchanged Hannah remains caution. Initial sandbox run could not acquire the runtime preparation lock; authorized runtime execution succeeded without scanner override or active installation/profile changes.
+- Publishing the tap's main branch through a dedicated checked PR. Open at commit: hosted checks/merge and remote package readback. No new collection tag; no fresh Hermes installation or live generation claim. Original checkout/branch and unrelated packages are preserved. Ruled out replacing the native host adapter or rewriting original collection provenance.
+- Files: `skills/lux-visual-systems/{SKILL.md,CHANGELOG.md,references/,assets/craft-stickers/}`, `SOURCE.json`, `tests/test_visual_library.py`, `README.md`, `CHANGELOG.md`, `JOURNAL.md`. Publication outcomes recorded in `/private/tmp/lux-craft-publication-receipt.json`.
+
 ## 2026-10-02 — Bauer v0.3.1 documentation-only synchronization
 
 - Refresh complete Codex38/Hermes18 inventories at immutable canonical `ed8ab5f2a7e587faf07560e99a04d0f34f8e6c69` (v0.3.1), exact bytes/SHA-256. Runtime helpers, earlier tags and known host/Python3.14 limits remain unchanged; Claude follows default source without a catalog edit.

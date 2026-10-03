@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Sync Lux Visual Systems 1.3.0 from Codex commit `7d373cb8951248a3e530f55f746809622eac31cd`: all 57 Craft-stickers source images (56 distinct), 44 added originals, category catalogue and exact source mappings. Preserve Hermes generation/tool gates, canonical priority and subject/mode governance; collection VERSION and original provenance remain unchanged.
+
 - Sync Bauer v0.3.1 documentation-only tag `ed8ab5f2a7e587faf07560e99a04d0f34f8e6c69`: eighteen exact skill/license files, version metadata and provenance; streamlined setup guidance linked from README. Runtime helpers and known limits remain unchanged; collection version stays independent.
 
 - Advance Bauer provenance/setup guidance to post-tag documentation revision `fc7ba2eb8f4f91cc12f27fb3c0655c519127691d`: simpler mode, saved-report and scorecard README sections. All eighteen shipped files/digests and version0.3.0 remain unchanged; the release tag is immutable.

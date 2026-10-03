@@ -9,7 +9,7 @@ Use this skill to art-direct sticker sheets, character sheets, full illustration
 - Choose **light mode** (cream field, dark structure) or **dark mode** (black field, cream structure).
 - Name the output format, aspect ratio, required text, and constraints that matter.
 
-The Lux Solari system supplies composition, hierarchy, palette discipline, typography, grid, texture, and severity. It does not silently choose rendering language or color mode. Missing choices are asked in chat, one focused question at a time, before generation; an exposed Hermes question picker may be used instead, following its actual schema and waiting for your submitted answer. Choices persist through refinements; explicit choices are not asked again.
+The Lux Solari system supplies composition, hierarchy, palette discipline, typography, grid, texture, and severity. It does not silently choose rendering language or color mode. Missing choices are collected with interactive option pickers when available, one question at a time, before generation. Choices persist through refinements; explicit choices are not asked again.
 
 ## Conversation starters
 
@@ -19,3 +19,12 @@ The Lux Solari system supplies composition, hierarchy, palette discipline, typog
 4. **Art-direct this photograph as a Lux Solari editorial piece** — Attach the photograph, state the photographic or mixed-media rendering language, and identify any copy or metadata that must appear.
 
 You can refine a result with instructions such as “keep the subject, rendering language, and composition; change only the accent color.”
+
+## Your packaged reference library
+
+The plugin includes all 57 images from your 2026-10-03 Craft-stickers snapshot:
+mixed craft sheets, character studies, full illustrations, photography cards,
+film labels, and PS2/game labels. Name a category or original filename when you
+want a particular reference; otherwise the skill selects relevant originals for
+the brief. You do not need to attach those images again. Your subject references,
+chosen rendering language, and color mode still govern the result.
