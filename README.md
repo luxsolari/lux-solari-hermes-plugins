@@ -12,13 +12,13 @@ This repository is a **skill tap**, not a Codex/Claude marketplace manifest and 
 
 ```sh
 hermes skills tap add luxsolari/lux-solari-hermes-plugins
-hermes skills search tri-swiss
-hermes skills install luxsolari/lux-solari-hermes-plugins/skills/tri-swiss
+hermes skills search lux-visual-systems-tri-swiss
+hermes skills install luxsolari/lux-solari-hermes-plugins/skills/lux-visual-systems-tri-swiss
 ```
 
-Install another skill by replacing `tri-swiss` with its directory name below. The full identifier includes `skills/`. Adding a tap makes it discoverable; it does not install the collection. Installations go into the active Hermes profile and use Hermes's normal security scanner. The earlier ten-skill scan reported nine `safe` verdicts and Hannah `caution` (including upstream privileged service-restart advice); those are historical results, not a fresh scan of the seven-skill catalogue. **Hermes blocks Hannah's default community-source installation at that verdict; it remains a published port with an installation blocker, not a clean-install claim.** The three image-generation skills are no longer distributed by this public tap. Review findings; do not disable scanning to make an installation pass.
+Install another skill by replacing `lux-visual-systems-tri-swiss` with its directory name below. The full identifier includes `skills/`. Adding a tap makes it discoverable; it does not install the collection. Installations go into the active Hermes profile and use Hermes's normal security scanner. The earlier ten-skill scan reported nine `safe` verdicts and Hannah `caution` (including upstream privileged service-restart advice); those are historical results, not a fresh scan of the seven-skill catalogue. **Hermes blocks Hannah's default community-source installation at that verdict; it remains a published port with an installation blocker, not a clean-install claim.** The three image-generation skills are no longer distributed by this public tap. Review findings; do not disable scanning to make an installation pass.
 
-Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the agent to load the skill. Historical command names documented in source material are not automatically registered as independent Hermes commands.
+Start a new session after installing. Invoke `/lux-visual-systems-tri-swiss <request>`, or ask the agent to load the skill. Historical command names documented in source material are not automatically registered as independent Hermes commands.
 
 ## Collection
 
@@ -29,8 +29,8 @@ Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the 
 | whiting | Repository setup, inspection, commits, and release discipline |
 | hannah | Hardware-aware local-model recommendations; bundled Python engine |
 | bauer | Evidence-backed OWASP security audits, advisory and supply-chain review |
-| lux-swiss | Swiss visual system with ink, cream, and red |
-| tri-swiss | Swiss visual system with a governed turquoise accent |
+| lux-visual-systems-lux-swiss | Swiss visual system with ink, cream, and red |
+| lux-visual-systems-tri-swiss | Swiss visual system with a governed turquoise accent |
 
 ## Boundaries
 

@@ -1,5 +1,5 @@
 ---
-name: tri-swiss
+name: lux-visual-systems-tri-swiss
 description: "Style interfaces with governed red and turquoise accents."
 version: 1.1.0
 author: Lux Solari (luxsolari), Hermes Agent
@@ -7,20 +7,20 @@ license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [design-system, swiss, tri-tone, tailwind, css, typography, tri-swiss]
-    related_skills: [lux-swiss]
+    tags: [design-system, swiss, tri-tone, tailwind, css, typography, lux-visual-systems-tri-swiss]
+    related_skills: [lux-visual-systems-lux-swiss]
 ---
 
-# Tri-Swiss — Design System
+# Lux Visual Systems - Tri-Swiss — Design System
 
 A strict, minimalist visual language built around the same Space Mono / Space
-Grotesk typography core as its sibling Lux Swiss (Geist Mono / Geist Sans flavor
+Grotesk typography core as its sibling Lux Visual Systems - Lux Swiss (Geist Mono / Geist Sans flavor
 available in both). Two structural colors (ink + cream), one strong accent
 (Swiss Red), and one governed non-semantic highlight (Pastel Turquoise);
 Swiss-minimalist layout, visible borders, no shadows.
 
 Apply by default whenever building or restyling UI. Trigger on the same phrases
-as Lux Swiss. When Lux Swiss or another design language is explicitly requested,
+as Lux Visual Systems - Lux Swiss. When Lux Visual Systems - Lux Swiss or another design language is explicitly requested,
 defer to that instead.
 
 Full component library in `references/components.md`.
@@ -167,7 +167,7 @@ Three roles, strictly separated, in two flavors that share the same serif.
 
 Headings render through a fourth dependent role, `--font-display`, which defaults to
 `--font-mono` until `.jost` is applied — then Jost takes over every heading site-wide.
-Jost is Tri-Swiss's own original register, opt-in, a single weight (700), loaded
+Jost is Lux Visual Systems - Tri-Swiss's own original register, opt-in, a single weight (700), loaded
 separately. Unlike `.geist`, `.jost` is not a flavor: it composes independently with
 either flavor and with `.dark`.
 

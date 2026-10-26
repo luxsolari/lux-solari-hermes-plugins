@@ -8,7 +8,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 NAMES = {
     'three-axes-framework', 'sage-instructor', 'whiting', 'hannah',
-    'lux-swiss', 'tri-swiss', 'bauer',
+    'lux-visual-systems-lux-swiss', 'lux-visual-systems-tri-swiss', 'bauer',
 }
 
 

@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Rename the visual family to Lux Visual Systems - Lux Swiss, Lux Visual Systems - Tri-Swiss, and Lux Visual Systems - Image Direction. Update active identifiers, installation paths and references; retain prior releases and licenses.
+
+
 ### Removed
 - Withdraw Lux Visual Systems, Machine Pilgrim and Anime Identity Designer from the public tap and active inventory. Their original source/reference material is retained privately by the owner. Existing installations and historical Git/release snapshots are not deleted by this distribution change.
 
