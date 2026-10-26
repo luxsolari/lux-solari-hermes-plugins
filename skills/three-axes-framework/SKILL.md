@@ -1,7 +1,7 @@
 ---
 name: three-axes-framework
 description: "Calibrate AI help by mastery, consequence, and intent."
-version: 1.7.2
+version: 1.7.3
 author: Lux Solari (luxsolari), Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]

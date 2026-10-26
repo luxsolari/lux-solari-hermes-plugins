@@ -146,7 +146,9 @@ class ReleaseSyncTests(unittest.TestCase):
 
     def test_current_release_has_execution_context_rule_and_shared_identity(self):
         lock = sync.check(ROOT)
-        self.assertEqual(lock["revision"], "cd0bc9066ad064c58a6981d93a1c4d34107a018b" if lock["version"] == "1.7.2" else lock["revision"])
+        known = {"1.7.2": "cd0bc9066ad064c58a6981d93a1c4d34107a018b", "1.7.3": "b73c4c495ac87454c6544a11f34f152f151ea6b5"}
+        if lock["version"] in known:
+            self.assertEqual(lock["revision"], known[lock["version"]])
         prefix, skill = sync.host_paths(lock["host"])
         path = skill if skill else sync.BASE
         text = (ROOT / path).read_text(encoding="utf-8")

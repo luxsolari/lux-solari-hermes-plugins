@@ -5,7 +5,7 @@
 ### Changed
 
 - Add hourly published-release synchronization through reviewed PRs, explicit CI dispatch, immutable source bindings and refusal of incompatible host changes.
-- Synchronize Three Axes 1.7.2 from `cd0bc9066ad064c58a6981d93a1c4d34107a018b` (three-axes-framework-v1.7.2); preserve the hermes host adapter.
+- Synchronize Three Axes 1.7.3 from `b73c4c495ac87454c6544a11f34f152f151ea6b5` (three-axes-framework-v1.7.3); preserve the hermes host adapter.
 
 ### Changed
 
