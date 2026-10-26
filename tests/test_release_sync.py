@@ -1,7 +1,10 @@
 """Offline release/update regressions; no user config or network access."""
 import importlib.util
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -144,6 +147,66 @@ class ReleaseSyncTests(unittest.TestCase):
         self.assertIn("--ref", text)
         self.assertNotIn("gh pr merge", text)
         self.assertNotIn("pull_request_target", text)
+
+    @unittest.skipIf(os.name == "nt", "workflow shell executes on the hosted Linux runner")
+    def test_bot_workflow_recovers_pr_and_dispatch_and_preserves_existing_head(self):
+        """Execute the real workflow shell against isolated GitHub/Git responses."""
+        workflow = (ROOT / ".github/workflows/sync-three-axes.yml").read_text()
+        shell = workflow.split("        run: |\n", 1)[1]
+        shell = "\n".join(line[10:] for line in shell.splitlines()) + "\n"
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "maintenance/three-axes").mkdir(parents=True)
+            (root / sync.STATE).write_text('{"version":"1.7.3"}')
+            (root / "run.sh").write_text(shell)
+            binary = root / "bin"
+            binary.mkdir()
+            mock = '''import json, os, sys
+from pathlib import Path
+tool = Path(sys.argv[0]).name
+args = sys.argv[1:]
+with open(os.environ['CALL_LOG'], 'a') as log:
+    log.write(json.dumps([tool, *args]) + '\\n')
+if tool == 'git':
+    if args[:2] == ['diff', '--quiet']:
+        sys.exit(1)
+    if args[0] == 'ls-remote':
+        if os.environ['BRANCH_EXISTS'] == '1':
+            print('b' * 40 + '\\trefs/heads/codex/sync-three-axes-1.7.3')
+        else:
+            sys.exit(2)
+elif args[:2] == ['pr', 'list']:
+    print(os.environ['PR_STATE'])
+elif args[:2] == ['run', 'list']:
+    # An approval-pending PR run must not suppress explicit CI dispatch.
+    assert '--event' in args and args[args.index('--event') + 1] == 'workflow_dispatch'
+    print(os.environ['DISPATCH_RUNS'])
+'''
+            for name in ("git", "gh"):
+                path = binary / name
+                path.write_text("#!" + sys.executable + "\n" + mock)
+                path.chmod(0o755)
+            for exists, state, runs in (("0", "MISSING", "0"), ("1", "MISSING", "0"), ("1", "OPEN", "0"), ("1", "OPEN", "1"), ("1", "CLOSED", "0")):
+                with self.subTest(branch=exists, pr=state, ci=runs):
+                    log = root / "calls.jsonl"
+                    log.write_text("")
+                    env = dict(os.environ, PATH=str(binary) + os.pathsep + os.environ["PATH"],
+                               RUNNER_TEMP=str(root), CALL_LOG=str(log), BRANCH_EXISTS=exists,
+                               PR_STATE=state, DISPATCH_RUNS=runs)
+                    result = subprocess.run(["bash", "run.sh"], cwd=root, env=env, capture_output=True, text=True)
+                    calls = [json.loads(line) for line in log.read_text().splitlines()]
+                    if state == "CLOSED":
+                        self.assertNotEqual(result.returncode, 0)
+                        continue
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    pushes = [c for c in calls if c[:2] == ["git", "push"]]
+                    self.assertEqual(len(pushes), int(exists == "0"))
+                    self.assertTrue(all(c[-1] != "main" and "--force" not in c for c in pushes))
+                    creates = [c for c in calls if c[:3] == ["gh", "pr", "create"]]
+                    self.assertEqual(len(creates), int(state == "MISSING"))
+                    dispatches = [c for c in calls if c[:3] == ["gh", "workflow", "run"]]
+                    self.assertEqual(len(dispatches), int(runs == "0"))
+                    self.assertTrue(all("--ref" in c and c[-1] == "codex/sync-three-axes-1.7.3" for c in dispatches))
 
 
 if __name__ == "__main__":
