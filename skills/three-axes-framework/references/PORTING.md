@@ -1,6 +1,6 @@
 # Port audit and provenance
 
-Source: `lux-solari-codex-plugins`, revision
+Historical initial port source: `lux-solari-codex-plugins`, revision
 `ec05a1acebabd1759777312c303a609ba92e97b6`, plugin `three-axes-framework`.
 Preserved source docs are audit records, not host-specific runtime instructions.
 
@@ -21,7 +21,7 @@ Three original Node suites passed 20 tests against the upstream hooks only; thos
 
 ## Maintenance workflow
 
-Keep provenance unchanged; adapt active instructions to the flattened skill root.
+Keep initial collection provenance unchanged. Current released open-source binding and hashes are maintained in `maintenance/three-axes/release.json` at the tap root and `SOURCE.json` additional_sources.three-axes-framework. Adapt active instructions to the flattened skill root.
 Treat source commands as behavioral specifications, not registered host aliases.
 Test canonical shipped helpers with disposable project fixtures and isolated user
 configuration; report native hook and live-model/visual gaps separately.

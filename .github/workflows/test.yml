@@ -1,5 +1,8 @@
 name: Package contracts
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -12,3 +15,6 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install -r requirements-dev.txt
       - run: python scripts/run_checks.py
+
+      - name: Check Three Axes released-source binding
+        run: python3 scripts/sync_three_axes.py --check
