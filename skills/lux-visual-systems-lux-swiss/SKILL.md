@@ -1,5 +1,5 @@
 ---
-name: lux-swiss
+name: lux-visual-systems-lux-swiss
 description: "Style interfaces with ink, cream, and a red accent."
 version: 1.1.0
 author: Lux Solari (luxsolari), Hermes Agent
@@ -7,11 +7,11 @@ license: MIT
 platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags: [design-system, swiss, minimalism, tailwind, css, typography, lux-swiss]
-    related_skills: [tri-swiss]
+    tags: [design-system, swiss, minimalism, tailwind, css, typography, lux-visual-systems-lux-swiss]
+    related_skills: [lux-visual-systems-tri-swiss]
 ---
 
-# Lux Swiss — Design System
+# Lux Visual Systems - Lux Swiss — Design System
 
 A strict, minimalist visual language: two functional colors (ink + warm cream),
 one blood-red accent, Swiss-minimalist layout, visible borders, no shadows,

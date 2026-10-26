@@ -1,7 +1,7 @@
 ---
-name: tri-swiss
+name: lux-visual-systems-tri-swiss
 description: >
-  Tri-Swiss — Lux Solari's house design system, sibling to lux-swiss (Lux
+  Lux Visual Systems - Tri-Swiss — Lux Solari's house design system, sibling to lux-visual-systems-lux-swiss (Lux
   Swiss, formerly Duotone Swiss), sharing the same Space Mono/Space
   Grotesk typography core (with a Geist Mono/Geist Sans flavor
   available in both). A tri-tone visual language (ink + cream,
@@ -17,10 +17,10 @@ description: >
   "swiss", "give it a theme", or when starting a new frontend from
   scratch. When another design language is explicitly requested
   (Material, shadcn defaults untouched, a client's brand kit, or the
-  sibling lux-swiss/Lux Swiss system specifically), defer to that instead.
+  sibling lux-visual-systems-lux-swiss/Lux Visual Systems - Lux Swiss system specifically), defer to that instead.
 ---
 
-# Tri-Swiss — Design System
+# Lux Visual Systems - Tri-Swiss — Design System
 
 A strict, minimalist visual language built around the same Space
 Mono/Space Grotesk typography core as its sibling system (a Geist
@@ -33,9 +33,9 @@ through typography, spacing, and contrast — Red and Turquoise are a
 deliberate, governed layer on top, never a substitute for that
 discipline.**
 
-Tri-Swiss is one of Lux Solari's two house-mark design systems — the
+Lux Visual Systems - Tri-Swiss is one of Lux Solari's two house-mark design systems — the
 personal brand identity carried into every project built with them. Its
-sibling, [Lux Swiss](https://github.com/luxsolari/lux-swiss) (formerly
+sibling, [Lux Visual Systems - Lux Swiss](https://github.com/luxsolari/lux-visual-systems-lux-swiss) (formerly
 Duotone Swiss), applies the same governance philosophy through a strict
 two-color-plus-accent palette; see `HOUSE-MARK.md` for how the two relate.
 
@@ -207,7 +207,7 @@ below for the system-wide rule this follows).
 
 Three roles, strictly separated by function, in **two font flavors** that
 share the same serif and swap only the mono/sans pair — the identical
-core Lux Swiss uses. Never swap a role's job, and never run a third
+core Lux Visual Systems - Lux Swiss uses. Never swap a role's job, and never run a third
 flavor.
 
 | Role | Space (default) | Geist (flavor) | Use |
@@ -285,7 +285,7 @@ It is never used for emphasis — emphasis is always weight.
 ### Heading accent — Jost (governed, optional)
 
 A fourth typeface, driven through a single dependent role variable,
-`--font-display`, not a third flavor — Tri-Swiss's own original register.
+`--font-display`, not a third flavor — Lux Visual Systems - Tri-Swiss's own original register.
 **Every heading** (`h1`–`h6`) — plus the hero title/wordmark and
 long-form section/chapter dividers, which are styled as headings —
 renders through `--font-display`. It defaults to `var(--mono)` (no
@@ -294,7 +294,7 @@ applied, at which point Jost takes over every heading site-wide, giving
 it real protagonism rather than a single narrow appearance. Labels,
 nav, tags, table headers, and data values stay on `--font-mono`
 directly — those are functional UI text, not headings, and keep the
-monospace-label identity this system shares with Lux Swiss.
+monospace-label identity this system shares with Lux Visual Systems - Lux Swiss.
 
 Unlike `.geist`, `.jost` is **not** a flavor: it composes independently
 with either flavor and with `.dark`, exactly like `.dark` composes with
@@ -322,7 +322,7 @@ own.
 {/* Hero title/wordmark and editorial chapter dividers are styled as
     headings, not marked up as <h1>-<h6> — they use font-display directly: */}
 <div className="font-display" style={{ fontSize: "4.5rem", fontWeight: 700 }}>
-  Tri-Swiss.
+  Lux Visual Systems - Tri-Swiss.
 </div>
 
 <div className="font-display" style={{ fontSize: "1.5rem", fontWeight: 700 }}>
@@ -458,7 +458,7 @@ not an open "designer's choice."
 one-icon-library rule, no other icon library, no icon fonts, no emoji.
 Restyle its three off-identity defaults; keep everything else:
 
-| Attribute | geist-icons default | Tri-Swiss |
+| Attribute | geist-icons default | Lux Visual Systems - Tri-Swiss |
 |-----------|---------------------|-----------|
 | `stroke-width` | varies by icon | `1.5` |
 | `stroke-linecap` | varies by icon | `square` |
