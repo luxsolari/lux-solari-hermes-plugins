@@ -24,6 +24,7 @@
     "hooks/lib/project-action.mjs": "13f381d6dc360a322251404da7dd3eb5ac8e01db65d1771e8be0cc6519854026",
     "hooks/lib/setup.mjs": "6b45c2ba57a12619e6dcff145f12ba58dd620565e294df2c240e3a3feb1f750e",
     "hooks/require-profile.mjs": "358a09d72761b5e58334ce0908d2e23b1eb60034658b7c85f9d73aed2c71ce5d",
+    "scripts/extract_changelog.py": "c3358d58dd64317b2f5e001b23eb14d96d084d86a63c538b541194c2b22aab9e",
     "skills/three-axes-framework/SKILL.md": "52c970cf8bea6ac8f56755db26832419a6c3c39d3eb52d879cd86e5da720f895"
   },
   "manifest_contract": {

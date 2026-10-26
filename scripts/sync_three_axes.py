@@ -76,8 +76,9 @@ def source_blobs(repo, revision):
             continue
         info, raw_path = entry.split(b"\t", 1)
         path = raw_path.decode("utf-8")
-        if not (path.startswith(("skills/", "commands/", "hooks/"))
-                or path in (MANIFEST, "LICENSE", "CHANGELOG.md")):
+        if not (path.startswith(("skills/", "commands/", "hooks/", "agents/", "scripts/",
+                                 "templates/", "outputStyles/", ".claude-plugin/", ".codex-plugin/"))
+                or path in (".mcp.json", ".lsp.json", ".app.json", "hooks.json", "LICENSE", "CHANGELOG.md")):
             continue
         mode, kind, oid = info.split()
         if mode not in (b"100644", b"100755") or kind != b"blob":
@@ -174,6 +175,10 @@ def plan(root, release, revision, blobs):
     for path, data in blobs.items():
         if path.startswith("hooks/") and digest(data) != lock["source_files"][path]:
             raise ValueError("upstream hooks changed; review native/conversational adapters manually")
+        if (path not in (SKILL, MANIFEST, "LICENSE", "CHANGELOG.md")
+                and not path.startswith(("commands/", "hooks/"))
+                and digest(data) != lock["source_files"][path]):
+            raise ValueError("unmapped upstream runtime changed; review host adaptation manually")
     # Component paths/dependencies cannot silently change underneath an adapter.
     comparable = {k: v for k, v in manifest.items() if k != "version"}
     if comparable != lock["manifest_contract"]:

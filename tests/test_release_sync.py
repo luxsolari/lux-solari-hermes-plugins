@@ -23,7 +23,7 @@ class ReleaseSyncTests(unittest.TestCase):
     def fixture(self, root, kind):
         old = b"---\nname: three-axes-framework\n---\n\n# Framework\n\nRule before.\n\nStable context one.\nStable context two.\nStable context three.\nStable context four.\n"
         blobs = {sync.SKILL: old, sync.MANIFEST: sync.encode(dict(name="three-axes-framework", version="1.7.2")),
-                 "hooks/start.mjs": b"trusted hook\n", "commands/three-axes.md": b"command\n",
+                 "hooks/start.mjs": b"trusted hook\n", ".mcp.json": b"{}\n", "commands/three-axes.md": b"command\n",
                  "LICENSE": b"MIT\n", "CHANGELOG.md": b"# Upstream notes\n"}
         prefix, skill = sync.host_paths(kind)
         files = {sync.BASE: old, "CHANGELOG.md": b"# Changelog\n\n## [Unreleased]\n",
@@ -109,6 +109,21 @@ class ReleaseSyncTests(unittest.TestCase):
 
     def test_changed_hooks_require_manual_adapter_review(self):
         self.assert_refused(lambda r, b, m: b.update({"hooks/start.mjs": b"new behavior"}), "hooks changed")
+
+    def test_implicit_runtime_changes_cannot_bypass_manifest_guard(self):
+        self.assert_refused(lambda r, b, m: b.update({".mcp.json": b'{"newServer":{}}'}), "unmapped upstream runtime")
+
+    def test_git_inventory_includes_implicit_components(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            sync.git(root, "init", "--quiet")
+            (root / ".mcp.json").write_text("{}")
+            (root / "agents").mkdir()
+            (root / "agents/helper.md").write_text("helper")
+            (root / "README.md").write_text("repository documentation")
+            sync.git(root, "add", "--all")
+            tree = sync.git(root, "write-tree").decode().strip()
+            self.assertEqual(set(sync.source_blobs(root, tree)), {".mcp.json", "agents/helper.md"})
 
     def test_manifest_contract_changes_require_review(self):
         self.assert_refused(lambda r, b, m: b.update({sync.MANIFEST: sync.encode(dict(name="three-axes-framework", version="1.7.3", commands=["new/"]))}), "contract changed")
