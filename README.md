@@ -16,7 +16,7 @@ hermes skills search tri-swiss
 hermes skills install luxsolari/lux-solari-hermes-plugins/skills/tri-swiss
 ```
 
-Install another skill by replacing `tri-swiss` with its directory name below. The full identifier includes `skills/`. Adding a tap makes it discoverable; it does not install the collection. Installations go into the active Hermes profile and use Hermes's normal security scanner. The current local scan reports nine `safe` verdicts (including Bauer) and Hannah `caution` (including upstream privileged service-restart advice). **Hermes blocks Hannah's default community-source installation at that verdict; it remains a published port with an installation blocker, not a clean-install claim.** Asset-size findings remain visible for the visual skills. Review findings; do not disable scanning to make an installation pass.
+Install another skill by replacing `tri-swiss` with its directory name below. The full identifier includes `skills/`. Adding a tap makes it discoverable; it does not install the collection. Installations go into the active Hermes profile and use Hermes's normal security scanner. The earlier ten-skill scan reported nine `safe` verdicts and Hannah `caution` (including upstream privileged service-restart advice); those are historical results, not a fresh scan of the seven-skill catalogue. **Hermes blocks Hannah's default community-source installation at that verdict; it remains a published port with an installation blocker, not a clean-install claim.** The three image-generation skills are no longer distributed by this public tap. Review findings; do not disable scanning to make an installation pass.
 
 Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the agent to load the skill. Historical command names documented in source material are not automatically registered as independent Hermes commands.
 
@@ -31,9 +31,6 @@ Start a new session after installing. Invoke `/tri-swiss <request>`, or ask the 
 | bauer | Evidence-backed OWASP security audits, advisory and supply-chain review |
 | lux-swiss | Swiss visual system with ink, cream, and red |
 | tri-swiss | Swiss visual system with a governed turquoise accent |
-| anime-identity-designer | Anime identity art direction and image generation |
-| lux-visual-systems | Lux Solari's editorial and image visual system; v1.3.0 includes all 57 Craft-stickers reference images |
-| machine-pilgrim | Images grounded in Descent into the Machine canon |
 
 ## Boundaries
 
@@ -89,6 +86,8 @@ The Release workflow checks the tag's identity and ancestry on `main`, reruns of
 Tagged archives are release snapshots. Normal Hermes tap installations still follow the repository's default branch; creating a release does not pin or upgrade installed skills.
 
 ## Verification status
+
+The following installation/scanner counts describe the earlier ten-skill snapshot. The current public tap contains seven skills after the personal image skills were withdrawn; no new Hermes runtime installation or scanner run is claimed by that removal.
 
 - The local ten-skill inventory passes packaging checks. Hermes’s actual frontmatter validator and support parser accept all ten; the community-source scanner returns nine `safe` verdicts and Hannah `caution`. Bauer’s informational API-key-read findings and selection-comment policy-pattern match remain visible. Canonical v0.1.0's public Bauer tap discovery/install was separately exercised through the actual CLI with authenticated GitHub access, normal scanning and twelve-file readback. That historical evidence does not verify v0.3.1 installation; no active installation is required or claimed for this sync.
 - 132 Python tests and three Whiting shell suites passed locally, including Bauer’s inventory, pinned-source byte parity, and six CLI entry-point help checks plus confirmed report-gate execution. Remote CI evidence for the previous release is recorded in `JOURNAL.md`.

@@ -8,8 +8,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 NAMES = {
     'three-axes-framework', 'sage-instructor', 'whiting', 'hannah',
-    'lux-swiss', 'tri-swiss', 'anime-identity-designer',
-    'lux-visual-systems', 'machine-pilgrim', 'bauer',
+    'lux-swiss', 'tri-swiss', 'bauer',
 }
 
 
@@ -49,15 +48,6 @@ class TapContractTests(unittest.TestCase):
                     continue
                 with self.subTest(skill=name, path=rel):
                     self.assertTrue((folder / rel).exists(), rel)
-
-    def test_visual_assets_and_licenses_ship(self):
-        expected = {'anime-identity-designer': 13, 'lux-visual-systems': 22, 'machine-pilgrim': 18}
-        for name, count in expected.items():
-            folder = ROOT / 'skills' / name
-            with self.subTest(skill=name):
-                self.assertEqual(len(list((folder / 'assets').glob('*.png'))), count)
-                self.assertTrue((folder / 'LICENSE-DESIGN').is_file())
-                self.assertTrue((folder / 'NOTICE.md').is_file())
 
     def test_hannah_engine_ships(self):
         folder = ROOT / 'skills' / 'hannah'

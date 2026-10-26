@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Removed
+- Withdraw Lux Visual Systems, Machine Pilgrim and Anime Identity Designer from the public tap and active inventory. Their original source/reference material is retained privately by the owner. Existing installations and historical Git/release snapshots are not deleted by this distribution change.
+
+
 - Sync Lux Visual Systems 1.3.0 from Codex commit `7d373cb8951248a3e530f55f746809622eac31cd`: all 57 Craft-stickers source images (56 distinct), 44 added originals, category catalogue and exact source mappings. Preserve Hermes generation/tool gates, canonical priority and subject/mode governance; collection VERSION and original provenance remain unchanged.
 
 - Sync Bauer v0.3.1 documentation-only tag `ed8ab5f2a7e587faf07560e99a04d0f34f8e6c69`: eighteen exact skill/license files, version metadata and provenance; streamlined setup guidance linked from README. Runtime helpers and known limits remain unchanged; collection version stays independent.
