@@ -1,5 +1,15 @@
 # Journal
 
+
+## 2026-10-26 — Retire personal image skills from the public tap
+
+- Remove Lux Visual Systems, Machine Pilgrim and Anime Identity Designer from skills/, active README inventory and catalogue-contract expectations. Remove the now-unshipped Lux Visual Systems library test; full host-specific source/assets and that test were preserved privately before removal.
+- Keep original SOURCE.json baseline and additional-source checksums as historical provenance, not a current skill inventory. Preserve all seven remaining skills and their versions, collection VERSION 0.1.0, prior tags, notices and the Hannah scanner caveat. Changelog records this distribution removal under Unreleased; no new release version/tag is invented.
+- Verified: scripts/run_checks.py passed 131 Python tests on Windows; shell suites are skipped on Windows and run in hosted Linux CI. Whitespace check passed. Earlier ten-skill installation/scanner results are labelled historical. No Hermes profile or installed skill is uninstalled or overwritten; no new live scanner or image-generation result is claimed.
+- Open at entry creation: checked PR and default-branch readback after merge. Public Git/release history is not rewritten; private routing and commercial preparation belong outside this public tap.
+- Files: skills/{lux-visual-systems,machine-pilgrim,anime-identity-designer} (removed), tests/test_tap.py, tests/test_visual_library.py (removed), README.md, CHANGELOG.md, JOURNAL.md.
+
+
 ## 2026-10-03 — Visual Systems 1.3.0 reference sync
 
 - Sync the full Craft-stickers library from merged Codex `7d373cb8951248a3e530f55f746809622eac31cd`: 57 source names, 56 distinct images, 44 added originals and category catalogue/hash mapping. Copy 76 reference/license/changelog files byte-identically; retain the Hermes SKILL adapter and set its source version to 1.3.0. Add 77 source hashes under independent `additional_sources.lux-visual-systems`; preserve baseline SOURCE fields and collection VERSION 0.1.0.
