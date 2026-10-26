@@ -1,0 +1,69 @@
+name: Synchronize Three Axes release
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: three-axes-release-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify existing binding and synchronize published release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/sync_three_axes.py
+      - name: Open synchronization PR and explicitly dispatch CI
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet && test -z "$(git ls-files --others --exclude-standard)"; then
+            echo "Already synchronized; no PR or CI dispatch needed."
+            exit 0
+          fi
+          version=$(python -c 'import json; print(json.load(open("maintenance/three-axes/release.json"))["version"])')
+          branch="codex/sync-three-axes-${version}"
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null; then
+            echo "Preserving the existing synchronization branch."
+          else
+            git switch -c "$branch"
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add --all
+            git commit -m "fix(three-axes): synchronize released ${version}"
+            git push origin "$branch"
+          fi
+          printf 'Synchronize the published open release %s. Source binding, host adaptation and copied guidance are checked offline. Full CI is dispatched explicitly because GITHUB_TOKEN pushes do not trigger ordinary push CI. Human review is required; this workflow never merges or publishes releases.\n' "$version" > "$RUNNER_TEMP/three-axes-pr.md"
+          state=$(gh pr list --head "$branch" --state all --json state --jq '.[0].state // "MISSING"')
+          if test "$state" = MISSING; then
+            gh pr create --base main --head "$branch" --title "fix(three-axes): synchronize released ${version}" --body-file "$RUNNER_TEMP/three-axes-pr.md"
+          else
+            test "$state" = OPEN || { echo "Closed synchronization PR needs manual review."; exit 1; }
+            gh pr view "$branch" --json url --jq .url
+          fi
+          head=$(git ls-remote --heads origin "refs/heads/$branch" | cut -f1)
+          runs=$(gh run list --workflow test.yml --branch "$branch" --event workflow_dispatch --json headSha --jq "[.[] | select(.headSha == \"$head\")] | length")
+          if test "$runs" = 0; then
+            gh workflow run test.yml --ref "$branch"
+          fi

@@ -1,0 +1,72 @@
+{
+  "host": "hermes",
+  "version": "1.7.3",
+  "tag": "three-axes-framework-v1.7.3",
+  "revision": "b73c4c495ac87454c6544a11f34f152f151ea6b5",
+  "source_files": {
+    ".claude-plugin/plugin.json": "d86e9074d4177b82d55744be0d465410fe3424cea15cd47117a797ce086b4835",
+    "CHANGELOG.md": "44b9b043ba58f228cda1f3c1b793eccf351463e9e77578f7eedb2d4f241e4ea7",
+    "LICENSE": "e61e2e723e72f5a7e8db9aefee621e1d5de0742c4152e0c750d3f369ce7818b0",
+    "commands/three-axes-audit.md": "2b760420aeb301d62785b76822187700c18a3a0c14fde5e17b4f9735116cfb3c",
+    "commands/three-axes-framework.md": "a9c52e9a51db899d7d21426aa291826a8f459857ccff694866dac72d78dea959",
+    "commands/three-axes-handoff.md": "76c44b1585b66d9aae96f6e3132a81407eace7fd90ba2572b07e0fb5c0116e02",
+    "commands/three-axes-log.md": "c7a20b2ea504c6c0c7cfc422e70d58f2dd2b04006bb676c16ef8a22b420a58d1",
+    "commands/three-axes-mode.md": "f5220db0b8bfab1ce73690755665395d363f4bf04fbdd9394c1c8a722927c3f8",
+    "commands/three-axes-set.md": "aa298940bebd67b922a1e4085e7e6baa98ee3d7fdd167ce62923c200aa49a817",
+    "commands/three-axes-setup.md": "74348f11d6120d4c6ac9c35a3bb879072eaa63ace44d423499f5b016b36aa228",
+    "commands/three-axes-status.md": "60e67d163b5067f5f7bd0c1c88538841783b73e9a07372bdfdd384282ee39c01",
+    "commands/three-axes.md": "1acf658e6b36442256286727959e95ebe277851a453a7326bd3bd7d08f42c9b1",
+    "hooks/configure-profile.mjs": "d9346f7681251f6d34c47153a57149c0d030ebe96e3e7bb3decdf60f6ffad5ba",
+    "hooks/hooks.json": "b70d724ff4b3d37a14b9b06f05631f4531e61c577f374d3378800cc150fc7e52",
+    "hooks/inject-framework.mjs": "d1fcffb5f5d731c983a4b57835e2c632cc30fc6bf1142124a4ad96914db1ebe3",
+    "hooks/lib/__tests__/profile.test.mjs": "d1adf2c7e1e3479114119cc10867206d53c2c64f0199f1ba702e4419175699cc",
+    "hooks/lib/profile.mjs": "458788fab81611369252c812e77e4b7684ed6e0028c18adb4993000f7ec2c7c3",
+    "hooks/lib/project-action.mjs": "6fbb237a97eb344786743c8775233226ea9ebafb8d004b78d536608ba4d26b93",
+    "hooks/lib/setup.mjs": "3277f7029d08cb318a9f21ec3e11e471548bb4edf089e1d9c6354dd4ad6977be",
+    "hooks/require-profile.mjs": "358a09d72761b5e58334ce0908d2e23b1eb60034658b7c85f9d73aed2c71ce5d",
+    "scripts/extract_changelog.py": "c3358d58dd64317b2f5e001b23eb14d96d084d86a63c538b541194c2b22aab9e",
+    "skills/three-axes-framework/SKILL.md": "52c970cf8bea6ac8f56755db26832419a6c3c39d3eb52d879cd86e5da720f895"
+  },
+  "manifest_contract": {
+    "name": "three-axes-framework",
+    "description": "Governs how AI assists developers by calibrating behavior across three axes — Mastery, Consequence, and Intent — to prevent comprehension debt, with thirteen citable Integrity Rules that keep the assistant honest about what it changed and what it verified.",
+    "author": {
+      "name": "Lux Solari",
+      "email": "luxsolari@outlook.com",
+      "url": "https://github.com/luxsolari"
+    },
+    "repository": "https://github.com/luxsolari/three-axes-framework",
+    "license": "MIT",
+    "keywords": [
+      "ai-assisted-development",
+      "comprehension-debt",
+      "developer-philosophy",
+      "learning",
+      "code-quality",
+      "integrity-rules",
+      "ai-reliability"
+    ],
+    "skills": "./skills/",
+    "commands": [
+      "./commands/"
+    ]
+  },
+  "managed_files": {
+    "skills/three-axes-framework/LICENSE": "e61e2e723e72f5a7e8db9aefee621e1d5de0742c4152e0c750d3f369ce7818b0",
+    "skills/three-axes-framework/SKILL.md": "5e78670583bb4a6fc9585a05c72b444f3881f78abc640718ef54b8a9c2e40cde",
+    "skills/three-axes-framework/references/commands.md": "26d431910b65d4c7594c0cce69aed5de7cf1f6e9da1d85065935ed2f92c3249f",
+    "skills/three-axes-framework/references/PORTING.md": "86363930aef6c8484e317b02f175a788fe2a69196acf2361b147f1b79ee53cc2",
+    "skills/three-axes-framework/references/source-SKILL.md": "52c970cf8bea6ac8f56755db26832419a6c3c39d3eb52d879cd86e5da720f895",
+    "skills/three-axes-framework/tests/test_port_contract.py": "98bae9e221b8771865fe1f36cfba336f2ea27524e541f38c9ffb51df7458a04e",
+    "skills/three-axes-framework/references/source-commands/three-axes-audit.md": "2b760420aeb301d62785b76822187700c18a3a0c14fde5e17b4f9735116cfb3c",
+    "skills/three-axes-framework/references/source-commands/three-axes-framework.md": "a9c52e9a51db899d7d21426aa291826a8f459857ccff694866dac72d78dea959",
+    "skills/three-axes-framework/references/source-commands/three-axes-handoff.md": "76c44b1585b66d9aae96f6e3132a81407eace7fd90ba2572b07e0fb5c0116e02",
+    "skills/three-axes-framework/references/source-commands/three-axes-log.md": "c7a20b2ea504c6c0c7cfc422e70d58f2dd2b04006bb676c16ef8a22b420a58d1",
+    "skills/three-axes-framework/references/source-commands/three-axes-mode.md": "f5220db0b8bfab1ce73690755665395d363f4bf04fbdd9394c1c8a722927c3f8",
+    "skills/three-axes-framework/references/source-commands/three-axes-set.md": "aa298940bebd67b922a1e4085e7e6baa98ee3d7fdd167ce62923c200aa49a817",
+    "skills/three-axes-framework/references/source-commands/three-axes-setup.md": "74348f11d6120d4c6ac9c35a3bb879072eaa63ace44d423499f5b016b36aa228",
+    "skills/three-axes-framework/references/source-commands/three-axes-status.md": "60e67d163b5067f5f7bd0c1c88538841783b73e9a07372bdfdd384282ee39c01",
+    "skills/three-axes-framework/references/source-commands/three-axes.md": "1acf658e6b36442256286727959e95ebe277851a453a7326bd3bd7d08f42c9b1",
+    "skills/three-axes-framework/CHANGELOG.md": "44b9b043ba58f228cda1f3c1b793eccf351463e9e77578f7eedb2d4f241e4ea7"
+  }
+}
