@@ -168,10 +168,13 @@ args = sys.argv[1:]
 with open(os.environ['CALL_LOG'], 'a') as log:
     log.write(json.dumps([tool, *args]) + '\\n')
 if tool == 'git':
+    marker = Path(os.environ['CALL_LOG']).parent / 'pushed'
+    if args[0] == 'push':
+        marker.write_text('1')
     if args[:2] == ['diff', '--quiet']:
         sys.exit(1)
     if args[0] == 'ls-remote':
-        if os.environ['BRANCH_EXISTS'] == '1':
+        if os.environ['BRANCH_EXISTS'] == '1' or marker.exists():
             print('b' * 40 + '\\trefs/heads/codex/sync-three-axes-1.7.3')
         else:
             sys.exit(2)
@@ -190,6 +193,7 @@ elif args[:2] == ['run', 'list']:
                 with self.subTest(branch=exists, pr=state, ci=runs):
                     log = root / "calls.jsonl"
                     log.write_text("")
+                    (root / "pushed").unlink(missing_ok=True)
                     env = dict(os.environ, PATH=str(binary) + os.pathsep + os.environ["PATH"],
                                RUNNER_TEMP=str(root), CALL_LOG=str(log), BRANCH_EXISTS=exists,
                                PR_STATE=state, DISPATCH_RUNS=runs)
